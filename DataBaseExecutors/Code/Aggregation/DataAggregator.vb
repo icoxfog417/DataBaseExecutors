@@ -1,13 +1,32 @@
 ﻿Imports Microsoft.VisualBasic
 Imports System.Data
 
-Namespace DataBaseExecutors
+Namespace DataBaseExecutors.Aggregation
 
+    ''' <summary>
+    ''' The class for aggregating DataTable.You can get List of class with subtotal items.<br/>
+    ''' Caution:You have to sort DataTable before aggregation.<br/>
+    ''' <br/>
+    ''' The Aggregation rule is defined in AbsAggregatable. So If you want to execute aggregate,there are 2 steps.<br/>
+    ''' <u>1.Make class that inherits AbsAggregatable and implements MustOverride.</u><br/>
+    ''' <para>
+    '''   1.1 Implements createInstance : conversion for DataRow to class instance.<br/>
+    '''   1.2 Implements MakeId/MakeCaption : Make id for each depth (For Example, depth 0 is Month , 1 is Customer and Material ... larger depth is more detail ).<br/>
+    '''   1.3 Implements Aggregate : Implements aggregation process<br/>
+    ''' </para>
+    ''' <u>2.Create instance of DataAggregator and execute Aggregate(Of <i>your_class</i>)</u><br/>
+    ''' Aggregate's result is List(Of <i>your_class</i>) that includes aggregated(subtotal) record.<br/>
+    ''' <br/>
+    ''' Aggregation is executed by below process<br/>
+    ''' <para>
+    ''' 1. Split DataTable by id. Id is made by MakeId and it depends on depth.<br/>
+    ''' 2. Aggregate each DataTable by Aggregate(that is implemented in AbsAggregatable ).<br/>
+    ''' 3. Merge Aggregated DataTables.<br/>
+    ''' </para>
+    ''' Note:For split the DataTable, you have to sort DataTable before Aggregation.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Class DataAggregator
-
-        'MapReduceのような仕組みで、異なるキーによる集計を同一処理プロセスで実現する.与えられているデータセットはソート済みであることが期待されるのでその点注意
-        'Map:与えられたキー作成関数に基づき、データセットを分割する
-        'Reduce(Aggregate):分割されたデータセットに対し集計処理を実行し、集計行を返す
 
         Public Sub New(ByVal conName As String)
             _connectionName = conName
@@ -20,62 +39,39 @@ Namespace DataBaseExecutors
             End Get
         End Property
 
-        'データセット(Datatable)の分割
-        Public Function Map(ByRef table As DataTable, ByVal criteria As DataRow, ByVal abs As AbsAggregatable) As Dictionary(Of String, DataTable)
+        ''' <summary>
+        ''' Execute Aggregation
+        ''' </summary>
+        ''' <typeparam name="T"></typeparam>
+        ''' <param name="table">target DataTable</param>
+        ''' <param name="id">if you want to aggregate specific part of DataTable, set id of it's part.</param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Function Aggregate(Of T As AbsAggregatable)(ByRef table As DataTable, Optional ByVal id As String = "") As List(Of T)
 
-            Dim result As New Dictionary(Of String, DataTable)
-            Dim tmp As DataTable = table.Clone
-            Dim breakKey As String = ""
-
-            '抽出条件での絞り込み
-            Dim query = From row As DataRow In table.AsEnumerable
-                        Where abs.IsTarget(criteria, row)
-                        Select row
-
-            For i As Integer = 0 To query.Count - 1
-                If String.IsNullOrEmpty(breakKey) Then '初回
-                    breakKey = abs.MakeId(query(i))
-                End If
-
-                Dim key As String = abs.MakeId(query(i))
-                If Not breakKey.Equals(key) Then
-                    result.Add(breakKey, tmp)
-                    breakKey = key
-                    tmp = table.Clone
-                End If
-
-                tmp.ImportRow(query(i))
-
-                If i = query.Count - 1 Then '最終行
-                    result.Add(breakKey, tmp)
-                End If
-
-            Next
-
-            Return result
+            Dim agg As AbsAggregatable = Activator.CreateInstance(Of T)()
+            Return Aggregate(Of T)(id, table, agg, 0)
 
         End Function
 
-        Private Function getMapById(ByVal id As String, ByRef table As DataTable, ByVal abs As AbsAggregatable) As Dictionary(Of String, DataTable)
-            Dim criteria As DataRow = table.NewRow
-            abs.MakeCriteriaFromId(id, criteria)
-
-            Dim mapList As Dictionary(Of String, DataTable) = Map(table, criteria, abs)
-
-            Return mapList
-
-        End Function
-
-        Public Function Aggregate(Of T As AbsAggregatable)(ByVal id As String, ByRef table As DataTable, ByRef abs As T) As List(Of T)
-            Return Aggregate(id, table, abs, 0)
-        End Function
-
+        ''' <summary>
+        ''' Execute Aggregation . Call myself for recursive process.<br/>
+        ''' aggregate depth + 1 aggregated DataTables .
+        ''' </summary>
+        ''' <typeparam name="T"></typeparam>
+        ''' <param name="id"></param>
+        ''' <param name="table"></param>
+        ''' <param name="abs"></param>
+        ''' <param name="depth"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         Private Function Aggregate(Of T As AbsAggregatable)(ByVal id As String, ByRef table As DataTable, ByRef abs As T, ByVal depth As Integer) As List(Of T)
 
+            'If aggregation depth over the limit , return Nothing
             If depth >= abs.DepthCount Then
                 Return Nothing
             Else
-                'Dim indexer As IMakeIndex = indexers(usingIndexer)
+
                 abs.depth = depth
                 Dim myChildren As Dictionary(Of String, DataTable) = getMapById(id, table, abs)
                 Dim result As New List(Of T)
@@ -83,8 +79,8 @@ Namespace DataBaseExecutors
                 For Each item As KeyValuePair(Of String, DataTable) In myChildren
 
                     Dim childResult As List(Of T) = Aggregate(item.Key, item.Value, abs, depth + 1)
-                    If childResult Is Nothing Then '終端ノード
-                        'これ以上集計しないため、そのまま追加
+                    If childResult Is Nothing Then 'The end of node
+                        'Add it without aggregation
                         Dim leafs As List(Of AbsAggregatable) = abs.createInstances(item.Value, depth)
                         For Each leaf As AbsAggregatable In leafs
                             leaf.depth = depth
@@ -94,13 +90,13 @@ Namespace DataBaseExecutors
                         Next
 
                     Else
-                        'childResultの集計行を作成
+                        'Make subtotal row
                         Dim subtotal As T = abs.createInstance(abs.Aggregate(item.Value), depth)
                         subtotal.depth = depth
                         subtotal.parentId = id
                         subtotal.childCount = item.Value.Rows.Count
 
-                        '集計行を加えたのちに、明細行を追加
+                        'Add subtotal row and add details
                         result.Add(subtotal)
                         result.AddRange(childResult)
                     End If
@@ -111,11 +107,76 @@ Namespace DataBaseExecutors
 
         End Function
 
+        ''' <summary>
+        ''' Get Splited DataTables.
+        ''' </summary>
+        ''' <param name="id">the id to split</param>
+        ''' <param name="table">original DataTable</param>
+        ''' <param name="abs"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Private Function getMapById(ByVal id As String, ByRef table As DataTable, ByVal abs As AbsAggregatable) As Dictionary(Of String, DataTable)
+            Dim criteria As DataRow = table.NewRow
+            abs.MakeCriteriaFromId(id, criteria)
+
+            Dim mapList As Dictionary(Of String, DataTable) = Map(table, criteria, abs)
+
+            Return mapList
+
+        End Function
+
+        ''' <summary>
+        ''' Split DataTable by id.<br/>
+        ''' Id is made by parameter abs . The value of id depends on it's depth.
+        ''' </summary>
+        ''' <param name="table">original DataTable</param>
+        ''' <param name="criteria">the records which match with this DataRow,is target of aggregation</param>
+        ''' <param name="abs"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Private Function Map(ByRef table As DataTable, ByVal criteria As DataRow, ByVal abs As AbsAggregatable) As Dictionary(Of String, DataTable)
+
+            Dim result As New Dictionary(Of String, DataTable)
+            Dim tmp As DataTable = table.Clone 'clone structure of datatable
+            Dim breakKey As String = ""
+
+            'Extract records whick match with criteria
+            Dim query = From row As DataRow In table.AsEnumerable
+                        Where abs.IsTarget(criteria, row)
+                        Select row
+
+            For i As Integer = 0 To query.Count - 1
+                If String.IsNullOrEmpty(breakKey) Then 'First
+                    breakKey = abs.MakeId(query(i)) 'Make id of depth now.
+                End If
+
+                Dim key As String = abs.MakeId(query(i))
+                If Not breakKey.Equals(key) Then 'If id breaks, add id and Datatable(same id records) to result.
+                    result.Add(breakKey, tmp)
+                    breakKey = key
+                    tmp = table.Clone
+                End If
+
+                tmp.ImportRow(query(i))
+
+                If i = query.Count - 1 Then 'Last record
+                    result.Add(breakKey, tmp)
+                End If
+
+            Next
+
+            Return result
+
+        End Function
+
     End Class
 
 
-    '集計可能クラスの定義
-    'Serializableなオブジェクトをプロパティとして持つ場合、DataContract/DataMemberで宣言しないと_sryのようにアンダースコアがつく
+    ''' <summary>
+    ''' Abstract Class for Aggregatable Class<br/>
+    ''' It's designed to convert Json.
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()>
     <Runtime.Serialization.DataContract()>
     Public MustInherit Class AbsAggregatable
@@ -136,7 +197,7 @@ Namespace DataBaseExecutors
         Public Property parentId As String = String.Empty
 
         <Runtime.Serialization.DataMember()>
-        Public Property childCount As Integer = 0 'リストにしてもよいが、データ量が増えそうなので
+        Public Property childCount As Integer = 0
 
         <Runtime.Serialization.DataMember()>
         Protected Shared _keySeparator As String = ","
@@ -205,7 +266,7 @@ Namespace DataBaseExecutors
                 If Not changedValue Is Nothing Then
                     values(pos) = changedValue
                 Else
-                    Dim erased As List(Of String) = values.ToList 'nothingの場合、要素を消す
+                    Dim erased As List(Of String) = values.ToList 'If value is Nothing, delete the element
                     erased.RemoveAt(pos)
                     values = erased.ToArray
                 End If
@@ -216,9 +277,8 @@ Namespace DataBaseExecutors
 
         End Function
 
-
         Public Function Aggregate(ByRef target As DataTable) As DataRow
-            Dim aggrTbl As DataTable = target.Clone 'DataTableをリターンするための仕組みがややこしいので、処理をオーバーラップ
+            Dim aggrTbl As DataTable = target.Clone
             Dim aggrRow As DataRow = aggrTbl.NewRow
 
             Aggregate(target, aggrRow)
@@ -251,7 +311,7 @@ Namespace DataBaseExecutors
         End Function
         Public Overridable Sub MakeCriteriaFromId(ByVal id As String, ByRef row As DataRow)
             If depth > 0 Then
-                '親の条件を設定
+                'Make parent's criteria
                 Dim element As String() = Split(id, KeySeparator)
                 Dim columns As List(Of String) = ListupKeys(depth - 1)
                 For i As Integer = 0 To columns.Count - 1
@@ -281,7 +341,7 @@ Namespace DataBaseExecutors
             End If
 
             If criteria Is Nothing Then
-                If String.IsNullOrEmpty(matchValue) Or IsDBNull(matchValue) Then 'Nothing指定の場合、値がNothingがDBnullなら一致と判定
+                If String.IsNullOrEmpty(matchValue) Or IsDBNull(matchValue) Then 'Nothing is equal to DBnull
                     result = True
                 End If
             Else

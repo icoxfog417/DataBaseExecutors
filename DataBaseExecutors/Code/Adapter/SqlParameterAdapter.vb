@@ -1,7 +1,11 @@
 ﻿Imports Microsoft.VisualBasic
 
-Namespace DataBaseExecutors
+Namespace DataBaseExecutors.Adapter
 
+    ''' <summary>
+    ''' Adapter For SqlServer
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Class SqlParameterAdapter
         Inherits AbsDBParameterAdapter
 

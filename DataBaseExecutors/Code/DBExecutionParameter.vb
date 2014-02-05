@@ -2,9 +2,14 @@
 Imports System.Data
 Imports System.Data.Common
 Imports System.Collections.Generic
+Imports DataBaseExecutors.Adapter
 
 Namespace DataBaseExecutors
 
+    ''' <summary>
+    ''' The class for sql query parameter.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Class DBExecutionParameter
         Inherits DbParameter
         Public Const DEFAULT_LENGTH As Integer = 2000
@@ -39,12 +44,20 @@ Namespace DataBaseExecutors
 
         End Sub
 
+        ''' <summary>
+        ''' set isDirty when parameter is changed from default
+        ''' </summary>
+        ''' <param name="pname"></param>
+        ''' <remarks></remarks>
         Private Sub setDirty(ByVal pname As String)
             If isDirty.IndexOf(pname) = -1 Then
                 isDirty.Add(pname)
             End If
         End Sub
 
+        ''' <summary>
+        ''' The Type of parameter
+        ''' </summary>
         Public Overrides Property DbType As System.Data.DbType
             Get
                 Return _dbType
@@ -55,6 +68,9 @@ Namespace DataBaseExecutors
             End Set
         End Property
 
+        ''' <summary>
+        ''' The Direction of parameter
+        ''' </summary>
         Public Overrides Property Direction As System.Data.ParameterDirection
             Get
                 Return _paramDirection
@@ -65,6 +81,9 @@ Namespace DataBaseExecutors
             End Set
         End Property
 
+        ''' <summary>
+        ''' Is parameter nullable or not.
+        ''' </summary>
         Public Overrides Property IsNullable As Boolean
             Get
                 Return _isNullable
@@ -75,6 +94,9 @@ Namespace DataBaseExecutors
             End Set
         End Property
 
+        ''' <summary>
+        ''' Parameter's name
+        ''' </summary>
         Public Overrides Property ParameterName As String
             Get
                 Return _paramName
@@ -86,9 +108,12 @@ Namespace DataBaseExecutors
         End Property
 
         Public Overrides Sub ResetDbType()
-
         End Sub
 
+        ''' <summary>
+        ''' The size of parameter.<br/>
+        ''' If it's not set, set size by Value's size.
+        ''' </summary>
         Public Overrides Property Size As Integer
             Get
                 Return _size
@@ -129,6 +154,9 @@ Namespace DataBaseExecutors
             End Set
         End Property
 
+        ''' <summary>
+        ''' Value of parameter.
+        ''' </summary>
         Public Overrides Property Value As Object
             Get
                 Return _value
@@ -146,11 +174,17 @@ Namespace DataBaseExecutors
             End Set
         End Property
 
+        ''' <summary>
+        ''' Set each parameters to received DbParameter.<br/>
+        ''' Only the edited(dirtied) parameter is set to received DbParameter (for keeping default value of DbParameter).<br/>
+        ''' When set the parameter, convert value by using adapter.
+        ''' </summary>
+        ''' <param name="param"></param>
+        ''' <param name="adapter"></param>
+        ''' <remarks></remarks>
         Public Sub transferData(ByRef param As DbParameter, ByRef adapter As AbsDBParameterAdapter)
-            'パラメータに設定された値を、(各DB固有の)DBParameterへセットする。(※各DBParameterの初期設定値をクリアしてしまわないよう、
-            'セットされたパラメーターのみ値を移す(isDirtyで判定)。
 
-            '各DBで実装が分かれるようなものについては、DBParameterAdapterへ委譲
+            'transfer setting process to adapter when database peculiarity parameter
             For Each pName As String In isDirty
                 Select Case pName
                     Case "DbType"

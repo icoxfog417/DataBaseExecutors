@@ -3,8 +3,12 @@ Imports System.Data
 Imports System.Data.Common
 Imports System.Reflection
 
-Namespace DataBaseExecutors
+Namespace DataBaseExecutors.Adapter
 
+    ''' <summary>
+    ''' Adapter For Oracle
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Class OracleParameterAdapter
         Inherits AbsDBParameterAdapter
 
@@ -26,17 +30,17 @@ Namespace DataBaseExecutors
 
             Select Case fromParam.DbType
                 Case Data.DbType.Xml
-                    'Oracle/xml型はDbTypeでサポートされていないので、特殊処理を入れる
-                    ' 'Data.DbType.Xmlではうまく処理できない　http://download.oracle.com/docs/cd/E16338_01/win.112/b62267/featOraCommand.htm#i1007424
+                    'Oracle XML Type is not supported in DbType,so handle it.
+                    'refer http://download.oracle.com/docs/cd/E16338_01/win.112/b62267/featOraCommand.htm#i1007424
 
                     setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "XmlType"))
 
                 Case Data.DbType.Guid
                     setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "Raw"))
                     If TypeOf fromParam.Value Is Guid Then
-                        toParam.Value = CType(fromParam.Value, Guid).ToByteArray 'Guidはバイト配列に変換する
+                        toParam.Value = CType(fromParam.Value, Guid).ToByteArray 'Guid convert to Byte Array
                     End If
-                    toParam.Size = 16 'Oracle上のGUIDはRAW(16)になる
+                    toParam.Size = 16 'Oracle's GUID is RAW(16)
 
                 Case Data.DbType.AnsiString
                     If fromParam.Size > 8000 Then
@@ -70,7 +74,7 @@ Namespace DataBaseExecutors
             Select Case result.DbType
                 Case DbType.AnsiString, DbType.AnsiStringFixedLength
                     If IsDBNull(value) Then
-                        value = String.Empty 'NULLを長さ0文字列にする
+                        value = String.Empty 'NULL is length 0 string
                     End If
             End Select
 
@@ -90,14 +94,38 @@ Namespace DataBaseExecutors
             End If
         End Function
 
+        Public Overrides Function GetDefaultColumnType(type As Type) As String
+            Dim columnType As String = ""
+
+            Select Case type
+                Case GetType(String)
+                    columnType = "VARCHAR2(1500)"
+                Case GetType(Integer), GetType(Int32)
+                    columnType = "NUMBER(15)"
+                Case GetType(Double)
+                    columnType = "NUMBER(10,5)"
+                Case GetType(Decimal)
+                    columnType = "NUMBER(10,5)"
+                Case GetType(DateTime)
+                    columnType = "DATE"
+                Case Else
+                    columnType = "VARCHAR2(1500)"
+            End Select
+
+            Return columnType
+
+        End Function
+
+        ''' <summary>
+        ''' To handle Oracle's error message.<br/>
+        ''' 
+        ''' </summary>
+        ''' <param name="oraMsg"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         Public Shared Function escapeOracleMsg(ByVal oraMsg As String) As String
-            'エラー番号検索
 
-            'エラーメッセージ内で改行を使用していた場合の対応 これだとLFで改行していた場合困ることになるが、
-            '今のところLF改行のSplit無しに正確にメッセージが取れる手段がないので（Oracleからのリターンは改行コードがLF）、とりあえずこれで対応。
-            '->ORA- を見つけてSplitする手もあるが、きちんと全てにおいて付くのか未検証
-
-            Dim oraMsgCRLFConvert As String = oraMsg.Replace(vbCrLf, vbVerticalTab) '縦タブに変換
+            Dim oraMsgCRLFConvert As String = oraMsg.Replace(vbCrLf, vbVerticalTab)
             Dim msgList As String() = Split(oraMsgCRLFConvert, vbLf)
             Dim result As String = ""
             Dim firstPls As Boolean = False
@@ -132,7 +160,7 @@ Namespace DataBaseExecutors
 
             End If
 
-            result = result.Replace(vbVerticalTab, vbCrLf) '元に戻す
+            result = result.Replace(vbVerticalTab, vbCrLf) 'reverce vertical tab to crlf
             Return result
 
         End Function

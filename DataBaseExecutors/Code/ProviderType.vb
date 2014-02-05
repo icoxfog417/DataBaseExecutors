@@ -4,44 +4,44 @@
 Namespace DataBaseExecutors
 
     ''' <summary>
-    ''' データベースのプロバイダ(Oracle,SqlServer etc)種別<br/>
-    ''' 現在、個別対応を行っているのはOracle/SqlServer
+    ''' The type of database provider(Oracle,SqlServer etc)<br/>
+    ''' Supports Oracle,SqlServer now.
     ''' </summary>
     ''' <remarks></remarks>
     Public Enum ProviderType
         Oracle
         SqlServer
-        ''' <summary>一般的なDB(特別な処理がないもの)</summary>
+        ''' <summary>General Database(no support)</summary>
         General
     End Enum
 
     ''' <summary>
-    ''' 接続文字列から、データベースプロバイダの情報を抽出するユーティリティ関数
+    ''' Judge database provider from connection string.
     ''' </summary>
     ''' <remarks></remarks>
     Public Class ProviderUtil
 
         ''' <summary>
-        ''' プロバイダの生の文字列を取得
+        ''' Get provider name in connection string
         ''' </summary>
-        ''' <param name="conName">接続文字列</param>
+        ''' <param name="conName"></param>
         Public Shared Function GetRaw(ByVal conName As String) As String
             Return ConfigurationManager.ConnectionStrings(conName).ProviderName.ToString
         End Function
 
         ''' <summary>
-        ''' プロバイダー種別を取得
+        ''' Get ProviderType from connection name.
         ''' </summary>
-        ''' <param name="conName">接続文字列</param>
+        ''' <param name="conName"></param>
         Public Shared Function GetProvider(ByVal conName As String) As ProviderType
             Dim provider As String = ConfigurationManager.ConnectionStrings(conName).ProviderName.ToString           
             Return toProviderType(provider)
         End Function
 
         ''' <summary>
-        ''' プロバイダー種別を取得
+        ''' Get ProviderType from provider name.
         ''' </summary>
-        ''' <param name="provider">プロバイダー文字列</param>
+        ''' <param name="provider"></param>
         Public Shared Function toProviderType(ByVal provider As String) As ProviderType
             Dim result As ProviderType = ProviderType.General
 
@@ -57,10 +57,9 @@ Namespace DataBaseExecutors
         End Function
 
         ''' <summary>
-        ''' クラスの接頭辞を取得<br/>
-        ''' 特にSqlServerの場合Sqlなる。
+        ''' Get Prefix of database provider.<br/>
         ''' </summary>
-        ''' <param name="pType">プロバイダー種別</param>
+        ''' <param name="pType"></param>
         Public Shared Function GetProviderPrefix(ByVal pType As ProviderType) As String
             Dim result As String = ""
 

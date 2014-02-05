@@ -4,7 +4,7 @@ Imports DataBaseExecutors
 <TestClass()>
 Public Class OracleParameterTest
 
-    Private Const OracleConnection As String = "OracleConnect"
+    Private Const OracleConnection As String = "OracleConnection"
 
     <TestMethod()>
     Public Sub useXMLType()

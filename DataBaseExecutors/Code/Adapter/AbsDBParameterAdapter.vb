@@ -3,18 +3,21 @@ Imports System.Data
 Imports System.Data.Common
 Imports System.Reflection
 
-'メソッドの実装を伴うためテンプレートクラスにしても良いが、そうするとMustOverrideが使えずPlaceFolderの
-'実装を強制できないため、Abstractで作成する
+Namespace DataBaseExecutors.Adapter
 
-Namespace DataBaseExecutors
-
+    ''' <summary>
+    ''' Abstract class for peculiarity of database<br/>
+    ''' The Adapter class which inherits this must put in Adapter folder , and it's naming is <i>DbPrefix</i>ParameterAdapter.<br/>
+    ''' DbType and it's prefix is defined in the class <see cref="DataBaseExecutors.ProviderUtil"/>.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public MustInherit Class AbsDBParameterAdapter
 
         Public MustOverride ReadOnly Property DBPlaceHolder() As String
 
         Public Function convertSqlPlaceFolder(ByVal sql As String, ByVal paramName As String) As String
 
-            'プレースフォルダ(一般的に:か@、ODBCの?は名称つきパラメータが使えないので考慮対象外)で始まり、1文字以上の空白が終端で区切られるものを置換
+            'Convert placefolder in sql(now, only deal with : or @)
             Dim result As String = sql
             Dim r As New System.Text.RegularExpressions.Regex("(:|@)(" + paramName + "(\s|\s*[\,\)\(])|" + paramName + "$)", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
             Dim m As System.Text.RegularExpressions.Match = r.Match(result)
@@ -22,7 +25,7 @@ Namespace DataBaseExecutors
             While m.Success
 
                 Dim charArray As Char() = m.Value.ToCharArray
-                If charArray(0) <> DBPlaceHolder Then '一文字目がプレースフォルダ これがDB固有のものと等しくない場合、置き換える
+                If charArray(0) <> DBPlaceHolder Then 'replace with peculiarity placefolder
                     charArray(0) = DBPlaceHolder
                     Dim convertedParamName As New String(charArray)
                     result = result.Replace(m.Value, convertedParamName)
@@ -47,12 +50,36 @@ Namespace DataBaseExecutors
             Return result.Value
         End Function
 
-        Public Sub setProperty(ByRef obj As Object, ByVal propertyName As String, ByVal value As Object)
+        Public Overridable Function GetDefaultColumnType(ByVal type As Type) As String
+            Dim columnType As String = ""
+
+            Select Case type
+                Case GetType(String)
+                    columnType = "VARCHAR(1500)"
+                Case GetType(Integer), GetType(Int32)
+                    columnType = "INTEGER"
+                Case GetType(Double)
+                    columnType = "NUMERIC(10,5)"
+                Case GetType(Decimal)
+                    columnType = "NUMERIC(10,5)"
+                Case GetType(DateTime)
+                    columnType = "DATETIME"
+                Case Else
+                    columnType = "VARCHAR(1500)"
+            End Select
+
+            Return columnType
+
+        End Function
+
+        Protected Sub setProperty(ByRef obj As Object, ByVal propertyName As String, ByVal value As Object)
             obj.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, Nothing, obj, New Object() {value})
         End Sub
-        Public Function getProperty(ByRef obj As Object, ByVal propertyName As String) As Object
+        Protected Function getProperty(ByRef obj As Object, ByVal propertyName As String) As Object
             Return obj.GetType().InvokeMember(propertyName, BindingFlags.GetProperty, Nothing, obj, Nothing)
         End Function
+
+
 
     End Class
 

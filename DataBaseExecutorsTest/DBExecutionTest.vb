@@ -4,17 +4,17 @@ Imports System.Data.Common
 <TestClass()>
 Public Class DBExecutionTest
 
-    Private Shared connectionName As String = "OracleConnect" '"SqlSConnect"
+    Private Const ConnectionName As String = "DefaultConnection"
     Private _testDataCount As Integer = 0
 
     <ClassInitialize()>
     Public Shared Sub setUp(context As TestContext)
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         'テーブル削除(事前に)
         db.sqlExecution("DROP TABLE USER_DATA")
         'テーブル作成
-        Select Case connectionName
+        Select Case ConnectionName
             Case "OracleConnect"
                 db.sqlExecution("CREATE TABLE USER_DATA ( ID NUMBER(10,0) NOT NULL, NAME VARCHAR2(20) )")
             Case Else
@@ -25,7 +25,7 @@ Public Class DBExecutionTest
 
     <TestInitialize()>
     Public Sub beforeTest()
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         'データ投入
         db.sqlExecution("INSERT INTO USER_DATA VALUES( 1, 'TARO' )")
@@ -40,7 +40,7 @@ Public Class DBExecutionTest
 
     <TestCleanup()>
     Public Sub afterTest()
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         '投入データ削除
         db.sqlExecution("DELETE FROM USER_DATA")
@@ -49,7 +49,7 @@ Public Class DBExecutionTest
 
     <TestMethod()>
     Public Sub SqlExecute()
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         'データ更新
         db.addFilter("pid", "2")
@@ -63,7 +63,7 @@ Public Class DBExecutionTest
     <TestMethod()>
     Public Sub SqlRead()
 
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         'DataTable取得
         Dim table As DataTable = db.sqlRead("SELECT * FROM USER_DATA ORDER BY ID")
@@ -93,7 +93,7 @@ Public Class DBExecutionTest
     <TestMethod()>
     Public Sub SqlReadOthers()
 
-        Dim db = New DBExecution(connectionName)
+        Dim db = New DBExecution(ConnectionName)
 
         'スカラー値取得
         Dim cnt As Integer = db.sqlReadScalar(Of Integer)("SELECT COUNT(*) AS CNT FROM USER_DATA")
