@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AbsAggregatable class">
+    <HelpKINode Title="AbsAggregatable Class" Url="html/838dd097-6a6a-4b56-ed97-b80426d7f2b3.htm" />
+    <HelpKINode Title="AbsAggregatable Members" Url="html/d50b316b-1c54-8d94-ebb1-dfe851922ef4.htm" />
+    <HelpKINode Title="about AbsAggregatable class" Url="html/838dd097-6a6a-4b56-ed97-b80426d7f2b3.htm" />
+    <HelpKINode Title="all members" Url="html/d50b316b-1c54-8d94-ebb1-dfe851922ef4.htm" />
+    <HelpKINode Title="constructor" Url="html/2bcebae4-4f1c-1ac1-4af8-57d482a76934.htm" />
+    <HelpKINode Title="fields" Url="html/3db7561b-ca83-23df-c2e5-d22707eb2c2a.htm" />
+    <HelpKINode Title="methods" Url="html/c393b25d-fddb-b64c-1e5e-31545558f503.htm" />
+    <HelpKINode Title="properties" Url="html/6b8ec2b9-c2bd-315d-372c-f2efb7bdf158.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AbsAggregatable.AbsAggregatable constructor" Url="html/2bcebae4-4f1c-1ac1-4af8-57d482a76934.htm" />
+  <HelpKINode Title="AbsAggregatable.Aggregate method" Url="html/6aa6705b-b98e-4b73-879b-18fc0dc21b65.htm" />
+  <HelpKINode Title="AbsAggregatable.caption property" Url="html/c7b3a2f0-0eff-8977-6cc7-df201c8fa4b7.htm" />
+  <HelpKINode Title="AbsAggregatable.childCount property" Url="html/30fe22e6-e8d5-15ad-5e81-42c26a6bb980.htm" />
+  <HelpKINode Title="AbsAggregatable.createInstance method" Url="html/b1e6f779-95f3-c314-6560-2f8d54465f8c.htm" />
+  <HelpKINode Title="AbsAggregatable.createInstances method" Url="html/c23b827a-9d46-8d53-7abe-481895931b96.htm" />
+  <HelpKINode Title="AbsAggregatable.defineAggretation method" Url="html/11141f1a-db5d-28b7-8beb-5cd7019bfed6.htm" />
+  <HelpKINode Title="AbsAggregatable.depth property" Url="html/bb66c6d0-3fe4-f2a8-7b22-d64fbc8f1d99.htm" />
+  <HelpKINode Title="AbsAggregatable.DepthCount method" Url="html/a2b6ba3f-59b7-c96b-63bd-1564e03e0920.htm" />
+  <HelpKINode Title="AbsAggregatable.GetKeyValue method" Url="html/a73e3b5d-40e3-4d9e-6e70-754d80e58c31.htm" />
+  <HelpKINode Title="AbsAggregatable.id property" Url="html/9debcc60-6532-6ede-b8e7-05d05e519a25.htm" />
+  <HelpKINode Title="AbsAggregatable.IsEqual method" Url="html/6742e323-67de-f933-eda7-78283582b8e9.htm" />
+  <HelpKINode Title="AbsAggregatable.isLeaf property" Url="html/4637bf7b-52e3-3f8b-1390-6742c29cc417.htm" />
+  <HelpKINode Title="AbsAggregatable.IsTarget method" Url="html/399c8c0e-d793-6c9b-d86b-f1e7889e41ca.htm" />
+  <HelpKINode Title="AbsAggregatable.KeySeparator property" Url="html/4bee06fc-c40f-6320-16f1-8de4549d8295.htm" />
+  <HelpKINode Title="AbsAggregatable.ListupKeys method" Url="html/4346f28a-1ee1-873d-2291-09af67cb63eb.htm" />
+  <HelpKINode Title="AbsAggregatable.MakeCaption method" Url="html/94f93961-583d-1c9b-7cbb-de3e4974ac27.htm" />
+  <HelpKINode Title="AbsAggregatable.MakeCriteriaFromId method" Url="html/271100dc-f306-34b8-3d6e-8c4706bf676b.htm" />
+  <HelpKINode Title="AbsAggregatable.MakeId method" Url="html/7c199236-a99c-9aa1-a5e6-24c8e358ba04.htm" />
+  <HelpKINode Title="AbsAggregatable.MakeIdImpl method" Url="html/2c2f0e42-bf94-2419-479f-2e39432f0024.htm" />
+  <HelpKINode Title="AbsAggregatable.makeReplacedKey method" Url="html/ac0fd1e9-b740-6697-8746-254d9c31f654.htm" />
+  <HelpKINode Title="AbsAggregatable.parentId property" Url="html/0c9ec43c-bf12-e798-08bc-eb8ae93bb15e.htm" />
+  <HelpKINode Title="AbsAggregatable.toValue method" Url="html/721777ac-ddb2-eb05-42a4-4608fe563d4e.htm" />
+  <HelpKINode Title="AbsAggregatable._aggrKeys field" Url="html/effc2afb-1839-e4d3-c400-c9ecffb33c23.htm" />
+  <HelpKINode Title="AbsAggregatable._keySeparator field" Url="html/0c93aad8-e8b4-29c7-5a3e-4bb86876729e.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter class">
+    <HelpKINode Title="AbsDBParameterAdapter Class" Url="html/6f3d9636-cc0d-7694-f0df-4090b27beb67.htm" />
+    <HelpKINode Title="AbsDBParameterAdapter Members" Url="html/78310bda-60b7-8e68-b422-35f19944e792.htm" />
+    <HelpKINode Title="about AbsDBParameterAdapter class" Url="html/6f3d9636-cc0d-7694-f0df-4090b27beb67.htm" />
+    <HelpKINode Title="all members" Url="html/78310bda-60b7-8e68-b422-35f19944e792.htm" />
+    <HelpKINode Title="constructor" Url="html/54b86535-0660-75e6-5ed6-6683c4591227.htm" />
+    <HelpKINode Title="methods" Url="html/21b7de97-0a38-aa9b-701c-60e289378ee2.htm" />
+    <HelpKINode Title="properties" Url="html/b3e07049-1979-0d3a-d4d1-ef4434292c93.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AbsDBParameterAdapter.AbsDBParameterAdapter constructor" Url="html/54b86535-0660-75e6-5ed6-6683c4591227.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.convertSqlPlaceFolder method" Url="html/8e4a09d0-0e2c-cc96-af41-11dbf46773f8.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.DBPlaceHolder property" Url="html/7d1b5ac6-75c3-b217-33af-afe24b9252a1.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.GetDefaultColumnType method" Url="html/952f8055-1377-be1e-3305-f2bfb9afc1e6.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.getProperty method" Url="html/a88de700-d4d2-0948-5de1-826972eb6741.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.GetResult method" Url="html/ae4b68b7-5e10-3689-f03a-e77e2e88f2f4.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.SetDbType method" Url="html/b621a16c-1229-1d90-c7b0-a13bcf92589c.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.setProperty method" Url="html/b85d30e6-e9c3-24f6-f1ec-a203cde50410.htm" />
+  <HelpKINode Title="AbsDBParameterAdapter.SetValue method" Url="html/e99ccb71-3c87-ecd5-c11b-05edd18a5504.htm" />
+  <HelpKINode Title="addFilter method" Url="html/70c9e74e-2094-7118-3e0e-dcec8e5766f2.htm" />
+  <HelpKINode Title="addResultParam method" Url="html/22ce19af-aeb2-c562-ac02-14cbce36fd28.htm" />
+  <HelpKINode Title="Aggregate method" Url="html/6aa6705b-b98e-4b73-879b-18fc0dc21b65.htm" />
+  <HelpKINode Title="Aggregate(Of T) method" Url="html/d2aba1cc-93da-c05f-891a-4d1f5ba2a843.htm" />
+  <HelpKINode Title="Aggregate&lt;T&gt; method" Url="html/d2aba1cc-93da-c05f-891a-4d1f5ba2a843.htm" />
+  <HelpKINode Title="beginTransaction method" Url="html/cf04efba-669a-7ba1-30fc-1974fbdc8be6.htm" />
+  <HelpKINode Title="caption property" Url="html/c7b3a2f0-0eff-8977-6cc7-df201c8fa4b7.htm" />
+  <HelpKINode Title="childCount property" Url="html/30fe22e6-e8d5-15ad-5e81-42c26a6bb980.htm" />
+  <HelpKINode Title="clearFilter method" Url="html/0bea9f43-7e35-7cce-667a-3d2bec6fc33e.htm" />
+  <HelpKINode Title="Column property" Url="html/be26793d-c190-0013-942a-7b2c0e0d0717.htm" />
+  <HelpKINode Title="ColumnName property" Url="html/21df2957-01b5-0ce0-cd32-d19cfca6a7d6.htm" />
+  <HelpKINode Title="CommandTimeout property" Url="html/317f4da1-2e99-cf06-221b-af60ce75a665.htm" />
+  <HelpKINode Title="ConnectionName property" Url="html/fc73de3c-a4b5-8619-b571-1f77bd023917.htm" />
+  <HelpKINode Title="convertSqlPlaceFolder method" Url="html/8e4a09d0-0e2c-cc96-af41-11dbf46773f8.htm" />
+  <HelpKINode Title="createExecute method" Url="html/bcb13452-9923-4653-4126-4cebd6e54c39.htm" />
+  <HelpKINode Title="createInstance method" Url="html/b1e6f779-95f3-c314-6560-2f8d54465f8c.htm" />
+  <HelpKINode Title="createInstances method" Url="html/c23b827a-9d46-8d53-7abe-481895931b96.htm" />
+  <HelpKINode Title="DataAggregator class">
+    <HelpKINode Title="DataAggregator Class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm" />
+    <HelpKINode Title="DataAggregator Members" Url="html/33b7db14-7cd0-70ec-2e9f-cc4ee221358b.htm" />
+    <HelpKINode Title="about DataAggregator class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm" />
+    <HelpKINode Title="all members" Url="html/33b7db14-7cd0-70ec-2e9f-cc4ee221358b.htm" />
+    <HelpKINode Title="constructor" Url="html/9bc4d350-63a3-a3f0-10f5-b55e96cd2d66.htm" />
+    <HelpKINode Title="methods" Url="html/5c63afa9-f4c2-8ae0-414d-ecdb9f7af26a.htm" />
+    <HelpKINode Title="properties" Url="html/cac9fed8-05db-ca6c-c8a7-7cc2128e100c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataAggregator.Aggregate(Of T) method" Url="html/d2aba1cc-93da-c05f-891a-4d1f5ba2a843.htm" />
+  <HelpKINode Title="DataAggregator.Aggregate&lt;T&gt; method" Url="html/d2aba1cc-93da-c05f-891a-4d1f5ba2a843.htm" />
+  <HelpKINode Title="DataAggregator.ConnectionName property" Url="html/fc73de3c-a4b5-8619-b571-1f77bd023917.htm" />
+  <HelpKINode Title="DataAggregator.DataAggregator constructor" Url="html/9bc4d350-63a3-a3f0-10f5-b55e96cd2d66.htm" />
+  <HelpKINode Title="DataBaseExecutors namespace" Url="html/9d62bfc7-cda5-08c6-8d01-3a250c0fed24.htm" />
+  <HelpKINode Title="DataBaseExecutors.Adapter namespace" Url="html/c534b5be-e20c-822e-5688-7b4a5fa24b4c.htm" />
+  <HelpKINode Title="DataBaseExecutors.Adapter.AbsDBParameterAdapter class">
+    <HelpKINode Title="AbsDBParameterAdapter Class" Url="html/6f3d9636-cc0d-7694-f0df-4090b27beb67.htm" />
+    <HelpKINode Title="AbsDBParameterAdapter Members" Url="html/78310bda-60b7-8e68-b422-35f19944e792.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Adapter.OracleParameterAdapter class">
+    <HelpKINode Title="OracleParameterAdapter Class" Url="html/caeb3f75-32bd-6c2f-3154-94ee11d0e31d.htm" />
+    <HelpKINode Title="OracleParameterAdapter Members" Url="html/2dc049f2-ffc6-0084-9929-5718ae56f3aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Adapter.SqlParameterAdapter class">
+    <HelpKINode Title="SqlParameterAdapter Class" Url="html/9f39dade-781b-d597-c101-1bd78c8b7ef9.htm" />
+    <HelpKINode Title="SqlParameterAdapter Members" Url="html/63710ceb-050f-958d-016d-962fc5930f59.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Aggregation namespace" Url="html/293a9a83-2ab9-f8e1-0458-41cd2da3fa38.htm" />
+  <HelpKINode Title="DataBaseExecutors.Aggregation.AbsAggregatable class">
+    <HelpKINode Title="AbsAggregatable Class" Url="html/838dd097-6a6a-4b56-ed97-b80426d7f2b3.htm" />
+    <HelpKINode Title="AbsAggregatable Members" Url="html/d50b316b-1c54-8d94-ebb1-dfe851922ef4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Aggregation.DataAggregator class">
+    <HelpKINode Title="DataAggregator Class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm" />
+    <HelpKINode Title="DataAggregator Members" Url="html/33b7db14-7cd0-70ec-2e9f-cc4ee221358b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.DbDataReaderExtension class">
+    <HelpKINode Title="DbDataReaderExtension Class" Url="html/5c43e9e9-f0e4-813f-c86d-a07a88cfdec6.htm" />
+    <HelpKINode Title="DbDataReaderExtension Members" Url="html/201b1afa-0b88-40a4-a5aa-4831f1c60c50.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.DBExecution class">
+    <HelpKINode Title="DBExecution Class" Url="html/e6471613-2e2c-491e-beba-cb9f5374a2d0.htm" />
+    <HelpKINode Title="DBExecution Members" Url="html/acd21d2a-ca79-4fc8-d9a2-b205161fafd0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.DBExecution.executeDbEnd(Of T) delegate" Url="html/a50b9c4a-bbe9-326e-b7ad-90003d0f66d5.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecution.executeDbEnd&lt;T&gt; delegate" Url="html/a50b9c4a-bbe9-326e-b7ad-90003d0f66d5.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecution.fetchDb delegate" Url="html/0fa6fe8f-d32f-7792-8530-f3434d1534b9.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecution.fetchDbEnd delegate" Url="html/0b14af75-b172-1b68-d976-1aa421b2cc7d.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecution.fetchDbItem(Of T) delegate" Url="html/bd3b3d78-44ab-ce29-cc6a-ff2cc2e88c6c.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecution.fetchDbItem&lt;T&gt; delegate" Url="html/bd3b3d78-44ab-ce29-cc6a-ff2cc2e88c6c.htm" />
+  <HelpKINode Title="DataBaseExecutors.DBExecutionParameter class">
+    <HelpKINode Title="DBExecutionParameter Class" Url="html/6aa7699e-67b1-a055-d06a-f819610c1551.htm" />
+    <HelpKINode Title="DBExecutionParameter Members" Url="html/de811b9d-50ed-f2fc-bb2e-d843300b50b0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity namespace" Url="html/4be53539-8bb2-5cbd-ca75-72b8850b2245.htm" />
+  <HelpKINode Title="DataBaseExecutors.Entity.DBColumnAttribute class">
+    <HelpKINode Title="DBColumnAttribute Class" Url="html/a8bc913e-cb79-5790-e1a9-30353331ddf5.htm" />
+    <HelpKINode Title="DBColumnAttribute Members" Url="html/18bbf873-c6c6-3774-6353-f3359427a30f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity.DBEntity class">
+    <HelpKINode Title="DBEntity Class" Url="html/4c7052cc-2d7f-c789-3701-a12b316103c5.htm" />
+    <HelpKINode Title="DBEntity Members" Url="html/57fa233b-08ec-73a9-f7f4-cde8e344f7a6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity.DBEntityExtension class">
+    <HelpKINode Title="DBEntityExtension Class" Url="html/cb0f6e42-3ad3-080d-da52-b5cd1a3659d7.htm" />
+    <HelpKINode Title="DBEntityExtension Members" Url="html/223ab156-0ed0-6cdd-3a2e-4d14b5193038.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity.DBEntityProperty class">
+    <HelpKINode Title="DBEntityProperty Class" Url="html/531872fd-01bb-f913-795a-a1f6ad7ebcfe.htm" />
+    <HelpKINode Title="DBEntityProperty Members" Url="html/6ce51490-0e26-76fe-b8dd-22909c6be2b9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity.DBSourceAttribute class">
+    <HelpKINode Title="DBSourceAttribute Class" Url="html/ce64b472-920b-916b-92cc-3413d5bd2305.htm" />
+    <HelpKINode Title="DBSourceAttribute Members" Url="html/6c5a645e-de98-bf58-b620-74d3d0cde29e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataBaseExecutors.Entity.IDBEntity interface" Url="html/8ebd6ffd-bf83-16be-6198-31480e7ab35e.htm" />
+  <HelpKINode Title="DataBaseExecutors.ProviderType enumeration" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
+  <HelpKINode Title="DataBaseExecutors.ProviderUtil class">
+    <HelpKINode Title="ProviderUtil Class" Url="html/bcc3868b-bc14-c34f-5d44-7fc608fdaa2b.htm" />
+    <HelpKINode Title="ProviderUtil Members" Url="html/7f9fb4ea-dd13-5fe0-62e8-e8ad000ac9a0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBColumnAttribute class">
+    <HelpKINode Title="DBColumnAttribute Class" Url="html/a8bc913e-cb79-5790-e1a9-30353331ddf5.htm" />
+    <HelpKINode Title="DBColumnAttribute Members" Url="html/18bbf873-c6c6-3774-6353-f3359427a30f.htm" />
+    <HelpKINode Title="about DBColumnAttribute class" Url="html/a8bc913e-cb79-5790-e1a9-30353331ddf5.htm" />
+    <HelpKINode Title="all members" Url="html/18bbf873-c6c6-3774-6353-f3359427a30f.htm" />
+    <HelpKINode Title="constructor" Url="html/26e81197-4900-a19a-64ae-03ef8da5643a.htm" />
+    <HelpKINode Title="methods" Url="html/12117df1-5cb3-f9f7-302d-914921f0918e.htm" />
+    <HelpKINode Title="properties" Url="html/fbdbe72f-b468-0dd6-d15a-b26028bf0344.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBColumnAttribute.DBColumnAttribute constructor" Url="html/26e81197-4900-a19a-64ae-03ef8da5643a.htm" />
+  <HelpKINode Title="DBColumnAttribute.Format property" Url="html/377f2fd1-ab25-8aba-5a42-6f8e40ddea65.htm" />
+  <HelpKINode Title="DBColumnAttribute.IsDbGenerate property" Url="html/02a9e513-3b7e-a568-5c81-0773aaf7fcc0.htm" />
+  <HelpKINode Title="DBColumnAttribute.IsKey property" Url="html/d760150f-87e9-7985-c7ec-c3a26264e9d6.htm" />
+  <HelpKINode Title="DBColumnAttribute.Name property" Url="html/911124d4-8210-b254-f8a1-ae249d79c55a.htm" />
+  <HelpKINode Title="DBColumnAttribute.Order property" Url="html/0ba239fb-822d-f930-904a-7f82e113d9ad.htm" />
+  <HelpKINode Title="DbDataReaderExtension class">
+    <HelpKINode Title="DbDataReaderExtension Class" Url="html/5c43e9e9-f0e4-813f-c86d-a07a88cfdec6.htm" />
+    <HelpKINode Title="DbDataReaderExtension Members" Url="html/201b1afa-0b88-40a4-a5aa-4831f1c60c50.htm" />
+    <HelpKINode Title="about DbDataReaderExtension class" Url="html/5c43e9e9-f0e4-813f-c86d-a07a88cfdec6.htm" />
+    <HelpKINode Title="all members" Url="html/201b1afa-0b88-40a4-a5aa-4831f1c60c50.htm" />
+    <HelpKINode Title="methods" Url="html/9c4d2bd7-9ea4-e384-f3b1-ff4a368bf482.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DbDataReaderExtension.GetDecimalOrDefault method" Url="html/2f0f58df-2940-1806-1c04-09d998476f77.htm" />
+  <HelpKINode Title="DbDataReaderExtension.GetIntegerOrDefault method" Url="html/92138ce1-3f33-09b8-6cd5-dbd26f31deec.htm" />
+  <HelpKINode Title="DbDataReaderExtension.GetStringOrDefault method" Url="html/58d3c10f-81f4-e3ed-b7de-36f86391e625.htm" />
+  <HelpKINode Title="DBEntity class">
+    <HelpKINode Title="DBEntity Class" Url="html/4c7052cc-2d7f-c789-3701-a12b316103c5.htm" />
+    <HelpKINode Title="DBEntity Members" Url="html/57fa233b-08ec-73a9-f7f4-cde8e344f7a6.htm" />
+    <HelpKINode Title="about DBEntity class" Url="html/4c7052cc-2d7f-c789-3701-a12b316103c5.htm" />
+    <HelpKINode Title="all members" Url="html/57fa233b-08ec-73a9-f7f4-cde8e344f7a6.htm" />
+    <HelpKINode Title="constructor" Url="html/ae623bd7-c804-2b5d-73c4-ddb05d9eb243.htm" />
+    <HelpKINode Title="methods" Url="html/d03d49dc-b57c-bdac-5cd9-a071dd63e6a6.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBEntity.createExecute method" Url="html/bcb13452-9923-4653-4126-4cebd6e54c39.htm" />
+  <HelpKINode Title="DBEntity.DBEntity constructor" Url="html/ae623bd7-c804-2b5d-73c4-ddb05d9eb243.htm" />
+  <HelpKINode Title="DBEntity.GetDBProperties method" Url="html/99264ace-9bb3-e7bf-c5ce-399111a5d380.htm" />
+  <HelpKINode Title="DBEntity.GetSource method" Url="html/eba8a949-539b-97e8-6689-52671ea013ae.htm" />
+  <HelpKINode Title="DBEntity.Read method" Url="html/0a48b7da-d13c-fb58-0b1a-f6eed6a73f66.htm" />
+  <HelpKINode Title="DBEntityExtension class">
+    <HelpKINode Title="DBEntityExtension Class" Url="html/cb0f6e42-3ad3-080d-da52-b5cd1a3659d7.htm" />
+    <HelpKINode Title="DBEntityExtension Members" Url="html/223ab156-0ed0-6cdd-3a2e-4d14b5193038.htm" />
+    <HelpKINode Title="about DBEntityExtension class" Url="html/cb0f6e42-3ad3-080d-da52-b5cd1a3659d7.htm" />
+    <HelpKINode Title="all members" Url="html/223ab156-0ed0-6cdd-3a2e-4d14b5193038.htm" />
+    <HelpKINode Title="methods" Url="html/2b7c9000-a1e9-af8b-3596-fe330a128262.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBEntityExtension.Delete method" Url="html/7fd28a44-59a3-45cf-b459-41323551c484.htm" />
+  <HelpKINode Title="DBEntityExtension.ReadByKey(Of T) method" Url="html/f5295abe-d7d5-3ea4-3dd4-d43868b3ce11.htm" />
+  <HelpKINode Title="DBEntityExtension.ReadByKey&lt;T&gt; method" Url="html/f5295abe-d7d5-3ea4-3dd4-d43868b3ce11.htm" />
+  <HelpKINode Title="DBEntityExtension.Save method" Url="html/67ff6692-145e-3046-3821-e66636f9d494.htm" />
+  <HelpKINode Title="DBEntityExtension.Source method" Url="html/949fd455-4e0b-f1bf-11c6-c1428d84b516.htm" />
+  <HelpKINode Title="DBEntityProperty class">
+    <HelpKINode Title="DBEntityProperty Class" Url="html/531872fd-01bb-f913-795a-a1f6ad7ebcfe.htm" />
+    <HelpKINode Title="DBEntityProperty Members" Url="html/6ce51490-0e26-76fe-b8dd-22909c6be2b9.htm" />
+    <HelpKINode Title="about DBEntityProperty class" Url="html/531872fd-01bb-f913-795a-a1f6ad7ebcfe.htm" />
+    <HelpKINode Title="all members" Url="html/6ce51490-0e26-76fe-b8dd-22909c6be2b9.htm" />
+    <HelpKINode Title="constructor" Url="html/54e1327d-d3a3-ab26-9f07-ecca5d5988f8.htm" />
+    <HelpKINode Title="methods" Url="html/a6f4ff4e-c190-ccfd-d369-c164dec23ac7.htm" />
+    <HelpKINode Title="properties" Url="html/249e10fe-9d58-ce04-c317-e3d136144916.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBEntityProperty.Column property" Url="html/be26793d-c190-0013-942a-7b2c0e0d0717.htm" />
+  <HelpKINode Title="DBEntityProperty.ColumnName property" Url="html/21df2957-01b5-0ce0-cd32-d19cfca6a7d6.htm" />
+  <HelpKINode Title="DBEntityProperty.DBEntityProperty constructor" Url="html/54e1327d-d3a3-ab26-9f07-ecca5d5988f8.htm" />
+  <HelpKINode Title="DBEntityProperty.Name property" Url="html/56c5968e-0616-4163-f7eb-24d3b7ed0776.htm" />
+  <HelpKINode Title="DBEntityProperty.ParameterName property" Url="html/c9c661cc-97e3-cca3-742c-c357acd0b9eb.htm" />
+  <HelpKINode Title="DBEntityProperty.Property property" Url="html/71639981-f6d5-7969-fb0e-2a2658760270.htm" />
+  <HelpKINode Title="DBEntityProperty.Type property" Url="html/56e4987c-a56f-f1e5-2ee2-c2ab7eacb277.htm" />
+  <HelpKINode Title="DBEntityProperty.Value property" Url="html/86cf2bc1-3640-858f-aead-7fc53eff7781.htm" />
+  <HelpKINode Title="DBExecution class">
+    <HelpKINode Title="DBExecution Class" Url="html/e6471613-2e2c-491e-beba-cb9f5374a2d0.htm" />
+    <HelpKINode Title="DBExecution Members" Url="html/acd21d2a-ca79-4fc8-d9a2-b205161fafd0.htm" />
+    <HelpKINode Title="about DBExecution class" Url="html/e6471613-2e2c-491e-beba-cb9f5374a2d0.htm" />
+    <HelpKINode Title="all members" Url="html/acd21d2a-ca79-4fc8-d9a2-b205161fafd0.htm" />
+    <HelpKINode Title="constructor" Url="html/dca63868-137a-edc1-44fd-761992a7156c.htm" />
+    <HelpKINode Title="methods" Url="html/c3c91c47-d0c4-3bd5-c320-d37cff42bf60.htm" />
+    <HelpKINode Title="properties" Url="html/92f95f25-04f3-83b7-9454-8f8b48d9040d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBExecution.addFilter method" Url="html/70c9e74e-2094-7118-3e0e-dcec8e5766f2.htm" />
+  <HelpKINode Title="DBExecution.addResultParam method" Url="html/22ce19af-aeb2-c562-ac02-14cbce36fd28.htm" />
+  <HelpKINode Title="DBExecution.beginTransaction method" Url="html/cf04efba-669a-7ba1-30fc-1974fbdc8be6.htm" />
+  <HelpKINode Title="DBExecution.clearFilter method" Url="html/0bea9f43-7e35-7cce-667a-3d2bec6fc33e.htm" />
+  <HelpKINode Title="DBExecution.CommandTimeout property" Url="html/317f4da1-2e99-cf06-221b-af60ce75a665.htm" />
+  <HelpKINode Title="DBExecution.DBExecution constructor" Url="html/dca63868-137a-edc1-44fd-761992a7156c.htm" />
+  <HelpKINode Title="DBExecution.Dispose method" Url="html/67680e10-753f-f75f-6cad-db014acc38a0.htm" />
+  <HelpKINode Title="DBExecution.endTransaction method" Url="html/77c86ee3-3ca3-5877-ca91-21660162bbbe.htm" />
+  <HelpKINode Title="DBExecution.executeDbEnd(Of T) delegate" Url="html/a50b9c4a-bbe9-326e-b7ad-90003d0f66d5.htm" />
+  <HelpKINode Title="DBExecution.executeDbEnd&lt;T&gt; delegate" Url="html/a50b9c4a-bbe9-326e-b7ad-90003d0f66d5.htm" />
+  <HelpKINode Title="DBExecution.executeDBFunction method" Url="html/5e1bb5a6-6088-0849-7e26-60b8e452ad02.htm" />
+  <HelpKINode Title="DBExecution.fetchDb delegate" Url="html/0fa6fe8f-d32f-7792-8530-f3434d1534b9.htm" />
+  <HelpKINode Title="DBExecution.fetchDbEnd delegate" Url="html/0b14af75-b172-1b68-d976-1aa421b2cc7d.htm" />
+  <HelpKINode Title="DBExecution.fetchDbItem(Of T) delegate" Url="html/bd3b3d78-44ab-ce29-cc6a-ff2cc2e88c6c.htm" />
+  <HelpKINode Title="DBExecution.fetchDbItem&lt;T&gt; delegate" Url="html/bd3b3d78-44ab-ce29-cc6a-ff2cc2e88c6c.htm" />
+  <HelpKINode Title="DBExecution.Filter property" Url="html/cef5473a-a073-3bc8-2396-339a1a3b60f1.htm" />
+  <HelpKINode Title="DBExecution.getErrorMsg method" Url="html/05f165b8-f1e9-73a4-f638-ac4700a8fe42.htm" />
+  <HelpKINode Title="DBExecution.getRowAffected method" Url="html/3a4ae56d-cdaf-6336-c909-ba1c35274d57.htm" />
+  <HelpKINode Title="DBExecution.importTable method" Url="html/148a27d2-8fee-84f0-5994-0407059b27c1.htm" />
+  <HelpKINode Title="DBExecution.readItemSafe method" Url="html/6a58bde2-17f0-15df-a60e-8c411192a270.htm" />
+  <HelpKINode Title="DBExecution.sqlExecution method" Url="html/d54d8bd2-9d2e-dbc4-c6b8-2b944b739426.htm" />
+  <HelpKINode Title="DBExecution.sqlIsExist method" Url="html/db059433-5ee2-8d26-24e2-e0714c84be57.htm" />
+  <HelpKINode Title="DBExecution.sqlRead method" Url="html/ccd08852-89ed-6833-06eb-11c4049abfd0.htm" />
+  <HelpKINode Title="DBExecution.sqlReadOneRow method" Url="html/29d514af-8d7f-ddea-c628-6cc333829d2f.htm" />
+  <HelpKINode Title="DBExecution.sqlReadScalar(Of T) method" Url="html/9116c789-9b2c-ebf6-a192-3c62384d45f3.htm" />
+  <HelpKINode Title="DBExecution.sqlReadScalar&lt;T&gt; method" Url="html/9116c789-9b2c-ebf6-a192-3c62384d45f3.htm" />
+  <HelpKINode Title="DBExecution.sqlReadToString method" Url="html/dfc56de0-2ccc-b16e-6359-a21250c38976.htm" />
+  <HelpKINode Title="DBExecutionParameter class">
+    <HelpKINode Title="DBExecutionParameter Class" Url="html/6aa7699e-67b1-a055-d06a-f819610c1551.htm" />
+    <HelpKINode Title="DBExecutionParameter Members" Url="html/de811b9d-50ed-f2fc-bb2e-d843300b50b0.htm" />
+    <HelpKINode Title="about DBExecutionParameter class" Url="html/6aa7699e-67b1-a055-d06a-f819610c1551.htm" />
+    <HelpKINode Title="all members" Url="html/de811b9d-50ed-f2fc-bb2e-d843300b50b0.htm" />
+    <HelpKINode Title="constructor" Url="html/8ab497e4-6456-e298-5085-9b7f1f45080d.htm" />
+    <HelpKINode Title="fields" Url="html/2d868476-348c-2e65-b0fc-90fdfcb2d822.htm" />
+    <HelpKINode Title="methods" Url="html/a47ec3b1-4e3e-4f75-b65a-a0a2bf165f02.htm" />
+    <HelpKINode Title="properties" Url="html/32325ea4-9930-1cfb-c43d-33c051e16f6e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBExecutionParameter.DBExecutionParameter constructor" Url="html/8ab497e4-6456-e298-5085-9b7f1f45080d.htm" />
+  <HelpKINode Title="DBExecutionParameter.DbType property" Url="html/edddec08-398f-0214-4315-32f3b569ef43.htm" />
+  <HelpKINode Title="DBExecutionParameter.DEFAULT_LENGTH field" Url="html/c84a359d-68c5-556f-3cb2-9ad260b1a00f.htm" />
+  <HelpKINode Title="DBExecutionParameter.Direction property" Url="html/57fac11d-1267-8eed-316f-d106b5bc7aa9.htm" />
+  <HelpKINode Title="DBExecutionParameter.IsNullable property" Url="html/ce05c772-cecb-1d6e-eae7-f03d444063b4.htm" />
+  <HelpKINode Title="DBExecutionParameter.ParameterName property" Url="html/9d720391-7274-6e61-61f5-ffc79509652b.htm" />
+  <HelpKINode Title="DBExecutionParameter.ResetDbType method" Url="html/2c8ecabb-b290-a820-52e8-aefc29ce5464.htm" />
+  <HelpKINode Title="DBExecutionParameter.Size property" Url="html/0ff4e3c7-cbaa-c5a2-66e2-88bbf551af18.htm" />
+  <HelpKINode Title="DBExecutionParameter.SourceColumn property" Url="html/cfe71bc0-2b98-f9ac-218e-896e0160a0bc.htm" />
+  <HelpKINode Title="DBExecutionParameter.SourceColumnNullMapping property" Url="html/f80dc13a-ba05-5d7e-38af-95d33fb18ce1.htm" />
+  <HelpKINode Title="DBExecutionParameter.SourceVersion property" Url="html/a580a020-c24f-846a-c8f9-02dddaf74521.htm" />
+  <HelpKINode Title="DBExecutionParameter.transferData method" Url="html/70db7f83-a415-4547-913b-39aff5de61a0.htm" />
+  <HelpKINode Title="DBExecutionParameter.Value property" Url="html/e1f61998-70a9-88ad-4d05-e5eb8e9d3402.htm" />
+  <HelpKINode Title="DBPlaceHolder property">
+    <HelpKINode Title="AbsDBParameterAdapter.DBPlaceHolder Property " Url="html/7d1b5ac6-75c3-b217-33af-afe24b9252a1.htm" />
+    <HelpKINode Title="OracleParameterAdapter.DBPlaceHolder Property " Url="html/c6d91161-c91f-5399-f6f3-414a5e0569af.htm" />
+    <HelpKINode Title="SqlParameterAdapter.DBPlaceHolder Property " Url="html/8b3f6fdc-8cd8-d689-4b64-27df9061024a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBSourceAttribute class">
+    <HelpKINode Title="DBSourceAttribute Class" Url="html/ce64b472-920b-916b-92cc-3413d5bd2305.htm" />
+    <HelpKINode Title="DBSourceAttribute Members" Url="html/6c5a645e-de98-bf58-b620-74d3d0cde29e.htm" />
+    <HelpKINode Title="about DBSourceAttribute class" Url="html/ce64b472-920b-916b-92cc-3413d5bd2305.htm" />
+    <HelpKINode Title="all members" Url="html/6c5a645e-de98-bf58-b620-74d3d0cde29e.htm" />
+    <HelpKINode Title="constructor" Url="html/d38d0d35-0fc7-fc2c-8aa1-1f79cf0f5577.htm" />
+    <HelpKINode Title="methods" Url="html/859f39dc-3e40-7c37-5449-ebf4919a2aaf.htm" />
+    <HelpKINode Title="properties" Url="html/56e0b2c0-6772-2080-bf7c-c2c34afe448e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DBSourceAttribute.DBSourceAttribute constructor" Url="html/d38d0d35-0fc7-fc2c-8aa1-1f79cf0f5577.htm" />
+  <HelpKINode Title="DBSourceAttribute.Table property" Url="html/68ba86be-963d-688c-2845-7420060c1dec.htm" />
+  <HelpKINode Title="DBSourceAttribute.View property" Url="html/3c22d32e-c3ba-c028-efe0-63ede39bfe0f.htm" />
+  <HelpKINode Title="DbType property" Url="html/edddec08-398f-0214-4315-32f3b569ef43.htm" />
+  <HelpKINode Title="DEFAULT_LENGTH field" Url="html/c84a359d-68c5-556f-3cb2-9ad260b1a00f.htm" />
+  <HelpKINode Title="defineAggretation method" Url="html/11141f1a-db5d-28b7-8beb-5cd7019bfed6.htm" />
+  <HelpKINode Title="Delete method" Url="html/7fd28a44-59a3-45cf-b459-41323551c484.htm" />
+  <HelpKINode Title="depth property" Url="html/bb66c6d0-3fe4-f2a8-7b22-d64fbc8f1d99.htm" />
+  <HelpKINode Title="DepthCount method" Url="html/a2b6ba3f-59b7-c96b-63bd-1564e03e0920.htm" />
+  <HelpKINode Title="Direction property" Url="html/57fac11d-1267-8eed-316f-d106b5bc7aa9.htm" />
+  <HelpKINode Title="Dispose method" Url="html/67680e10-753f-f75f-6cad-db014acc38a0.htm" />
+  <HelpKINode Title="endTransaction method" Url="html/77c86ee3-3ca3-5877-ca91-21660162bbbe.htm" />
+  <HelpKINode Title="escapeOracleMsg method" Url="html/895bc092-8fd4-209e-af30-faeb6bdc910e.htm" />
+  <HelpKINode Title="executeDBFunction method" Url="html/5e1bb5a6-6088-0849-7e26-60b8e452ad02.htm" />
+  <HelpKINode Title="Filter property" Url="html/cef5473a-a073-3bc8-2396-339a1a3b60f1.htm" />
+  <HelpKINode Title="Format property" Url="html/377f2fd1-ab25-8aba-5a42-6f8e40ddea65.htm" />
+  <HelpKINode Title="General enumeration member" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
+  <HelpKINode Title="GetDBProperties method" Url="html/99264ace-9bb3-e7bf-c5ce-399111a5d380.htm" />
+  <HelpKINode Title="GetDecimalOrDefault method" Url="html/2f0f58df-2940-1806-1c04-09d998476f77.htm" />
+  <HelpKINode Title="GetDefaultColumnType method">
+    <HelpKINode Title="AbsDBParameterAdapter.GetDefaultColumnType Method " Url="html/952f8055-1377-be1e-3305-f2bfb9afc1e6.htm" />
+    <HelpKINode Title="OracleParameterAdapter.GetDefaultColumnType Method " Url="html/fe6d6181-140e-71e9-f69f-ce55071e25c8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="getErrorMsg method" Url="html/05f165b8-f1e9-73a4-f638-ac4700a8fe42.htm" />
+  <HelpKINode Title="GetIntegerOrDefault method" Url="html/92138ce1-3f33-09b8-6cd5-dbd26f31deec.htm" />
+  <HelpKINode Title="GetKeyValue method" Url="html/a73e3b5d-40e3-4d9e-6e70-754d80e58c31.htm" />
+  <HelpKINode Title="getProperty method" Url="html/a88de700-d4d2-0948-5de1-826972eb6741.htm" />
+  <HelpKINode Title="GetProvider method" Url="html/721079d0-5028-5560-e8a9-fd3224b6099d.htm" />
+  <HelpKINode Title="GetProviderPrefix method" Url="html/4811cec7-d9a0-f5e2-e619-773eabf3116a.htm" />
+  <HelpKINode Title="GetRaw method" Url="html/62b145a2-d8c4-b3bf-ef99-d5be147fb7bb.htm" />
+  <HelpKINode Title="GetResult method">
+    <HelpKINode Title="AbsDBParameterAdapter.GetResult Method " Url="html/ae4b68b7-5e10-3689-f03a-e77e2e88f2f4.htm" />
+    <HelpKINode Title="OracleParameterAdapter.GetResult Method " Url="html/fbd3da3e-9ddc-5abb-63a6-2ad28d611744.htm" />
+  </HelpKINode>
+  <HelpKINode Title="getRowAffected method" Url="html/3a4ae56d-cdaf-6336-c909-ba1c35274d57.htm" />
+  <HelpKINode Title="GetSource method" Url="html/eba8a949-539b-97e8-6689-52671ea013ae.htm" />
+  <HelpKINode Title="GetStringOrDefault method" Url="html/58d3c10f-81f4-e3ed-b7de-36f86391e625.htm" />
+  <HelpKINode Title="id property" Url="html/9debcc60-6532-6ede-b8e7-05d05e519a25.htm" />
+  <HelpKINode Title="IDBEntity interface">
+    <HelpKINode Title="IDBEntity Interface" Url="html/8ebd6ffd-bf83-16be-6198-31480e7ab35e.htm" />
+    <HelpKINode Title="about IDBEntity interface" Url="html/8ebd6ffd-bf83-16be-6198-31480e7ab35e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="importTable method" Url="html/148a27d2-8fee-84f0-5994-0407059b27c1.htm" />
+  <HelpKINode Title="IsDbGenerate property" Url="html/02a9e513-3b7e-a568-5c81-0773aaf7fcc0.htm" />
+  <HelpKINode Title="IsEqual method" Url="html/6742e323-67de-f933-eda7-78283582b8e9.htm" />
+  <HelpKINode Title="IsKey property" Url="html/d760150f-87e9-7985-c7ec-c3a26264e9d6.htm" />
+  <HelpKINode Title="isLeaf property" Url="html/4637bf7b-52e3-3f8b-1390-6742c29cc417.htm" />
+  <HelpKINode Title="IsNullable property" Url="html/ce05c772-cecb-1d6e-eae7-f03d444063b4.htm" />
+  <HelpKINode Title="IsTarget method" Url="html/399c8c0e-d793-6c9b-d86b-f1e7889e41ca.htm" />
+  <HelpKINode Title="KeySeparator property" Url="html/4bee06fc-c40f-6320-16f1-8de4549d8295.htm" />
+  <HelpKINode Title="ListupKeys method" Url="html/4346f28a-1ee1-873d-2291-09af67cb63eb.htm" />
+  <HelpKINode Title="MakeCaption method" Url="html/94f93961-583d-1c9b-7cbb-de3e4974ac27.htm" />
+  <HelpKINode Title="MakeCriteriaFromId method" Url="html/271100dc-f306-34b8-3d6e-8c4706bf676b.htm" />
+  <HelpKINode Title="MakeId method" Url="html/7c199236-a99c-9aa1-a5e6-24c8e358ba04.htm" />
+  <HelpKINode Title="MakeIdImpl method" Url="html/2c2f0e42-bf94-2419-479f-2e39432f0024.htm" />
+  <HelpKINode Title="makeReplacedKey method" Url="html/ac0fd1e9-b740-6697-8746-254d9c31f654.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="DBColumnAttribute.Name Property " Url="html/911124d4-8210-b254-f8a1-ae249d79c55a.htm" />
+    <HelpKINode Title="DBEntityProperty.Name Property " Url="html/56c5968e-0616-4163-f7eb-24d3b7ed0776.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Oracle enumeration member" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
+  <HelpKINode Title="OracleParameterAdapter class">
+    <HelpKINode Title="OracleParameterAdapter Class" Url="html/caeb3f75-32bd-6c2f-3154-94ee11d0e31d.htm" />
+    <HelpKINode Title="OracleParameterAdapter Members" Url="html/2dc049f2-ffc6-0084-9929-5718ae56f3aa.htm" />
+    <HelpKINode Title="about OracleParameterAdapter class" Url="html/caeb3f75-32bd-6c2f-3154-94ee11d0e31d.htm" />
+    <HelpKINode Title="all members" Url="html/2dc049f2-ffc6-0084-9929-5718ae56f3aa.htm" />
+    <HelpKINode Title="constructor" Url="html/69efd582-edd7-9376-5daf-d5084cd80a69.htm" />
+    <HelpKINode Title="methods" Url="html/124ebe62-9513-76ac-9886-bfa8c983437d.htm" />
+    <HelpKINode Title="properties" Url="html/eac0ab8c-6d57-3bd7-0438-3572ad34548e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OracleParameterAdapter.DBPlaceHolder property" Url="html/c6d91161-c91f-5399-f6f3-414a5e0569af.htm" />
+  <HelpKINode Title="OracleParameterAdapter.escapeOracleMsg method" Url="html/895bc092-8fd4-209e-af30-faeb6bdc910e.htm" />
+  <HelpKINode Title="OracleParameterAdapter.GetDefaultColumnType method" Url="html/fe6d6181-140e-71e9-f69f-ce55071e25c8.htm" />
+  <HelpKINode Title="OracleParameterAdapter.GetResult method" Url="html/fbd3da3e-9ddc-5abb-63a6-2ad28d611744.htm" />
+  <HelpKINode Title="OracleParameterAdapter.OracleParameterAdapter constructor" Url="html/69efd582-edd7-9376-5daf-d5084cd80a69.htm" />
+  <HelpKINode Title="OracleParameterAdapter.SetDbType method" Url="html/7056d35b-00cf-6441-290b-f59223cbb1cf.htm" />
+  <HelpKINode Title="Order property" Url="html/0ba239fb-822d-f930-904a-7f82e113d9ad.htm" />
+  <HelpKINode Title="ParameterName property">
+    <HelpKINode Title="DBEntityProperty.ParameterName Property " Url="html/c9c661cc-97e3-cca3-742c-c357acd0b9eb.htm" />
+    <HelpKINode Title="DBExecutionParameter.ParameterName Property " Url="html/9d720391-7274-6e61-61f5-ffc79509652b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="parentId property" Url="html/0c9ec43c-bf12-e798-08bc-eb8ae93bb15e.htm" />
+  <HelpKINode Title="Property property" Url="html/71639981-f6d5-7969-fb0e-2a2658760270.htm" />
+  <HelpKINode Title="ProviderType enumeration" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
+  <HelpKINode Title="ProviderUtil class">
+    <HelpKINode Title="ProviderUtil Class" Url="html/bcc3868b-bc14-c34f-5d44-7fc608fdaa2b.htm" />
+    <HelpKINode Title="ProviderUtil Members" Url="html/7f9fb4ea-dd13-5fe0-62e8-e8ad000ac9a0.htm" />
+    <HelpKINode Title="about ProviderUtil class" Url="html/bcc3868b-bc14-c34f-5d44-7fc608fdaa2b.htm" />
+    <HelpKINode Title="all members" Url="html/7f9fb4ea-dd13-5fe0-62e8-e8ad000ac9a0.htm" />
+    <HelpKINode Title="constructor" Url="html/968aaf37-336b-d53b-83ee-d3b7202318a4.htm" />
+    <HelpKINode Title="methods" Url="html/d5b27ab4-8376-276e-a1e4-c9466147379f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ProviderUtil.GetProvider method" Url="html/721079d0-5028-5560-e8a9-fd3224b6099d.htm" />
+  <HelpKINode Title="ProviderUtil.GetProviderPrefix method" Url="html/4811cec7-d9a0-f5e2-e619-773eabf3116a.htm" />
+  <HelpKINode Title="ProviderUtil.GetRaw method" Url="html/62b145a2-d8c4-b3bf-ef99-d5be147fb7bb.htm" />
+  <HelpKINode Title="ProviderUtil.ProviderUtil constructor" Url="html/968aaf37-336b-d53b-83ee-d3b7202318a4.htm" />
+  <HelpKINode Title="ProviderUtil.toProviderType method" Url="html/c972aaec-f779-de49-7387-0e16ee364281.htm" />
+  <HelpKINode Title="Read method" Url="html/0a48b7da-d13c-fb58-0b1a-f6eed6a73f66.htm" />
+  <HelpKINode Title="ReadByKey(Of T) method" Url="html/f5295abe-d7d5-3ea4-3dd4-d43868b3ce11.htm" />
+  <HelpKINode Title="ReadByKey&lt;T&gt; method" Url="html/f5295abe-d7d5-3ea4-3dd4-d43868b3ce11.htm" />
+  <HelpKINode Title="readItemSafe method" Url="html/6a58bde2-17f0-15df-a60e-8c411192a270.htm" />
+  <HelpKINode Title="ResetDbType method" Url="html/2c8ecabb-b290-a820-52e8-aefc29ce5464.htm" />
+  <HelpKINode Title="Save method" Url="html/67ff6692-145e-3046-3821-e66636f9d494.htm" />
+  <HelpKINode Title="SetDbType method">
+    <HelpKINode Title="AbsDBParameterAdapter.SetDbType Method " Url="html/b621a16c-1229-1d90-c7b0-a13bcf92589c.htm" />
+    <HelpKINode Title="OracleParameterAdapter.SetDbType Method " Url="html/7056d35b-00cf-6441-290b-f59223cbb1cf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="setProperty method" Url="html/b85d30e6-e9c3-24f6-f1ec-a203cde50410.htm" />
+  <HelpKINode Title="SetValue method" Url="html/e99ccb71-3c87-ecd5-c11b-05edd18a5504.htm" />
+  <HelpKINode Title="Size property" Url="html/0ff4e3c7-cbaa-c5a2-66e2-88bbf551af18.htm" />
+  <HelpKINode Title="Source method" Url="html/949fd455-4e0b-f1bf-11c6-c1428d84b516.htm" />
+  <HelpKINode Title="SourceColumn property" Url="html/cfe71bc0-2b98-f9ac-218e-896e0160a0bc.htm" />
+  <HelpKINode Title="SourceColumnNullMapping property" Url="html/f80dc13a-ba05-5d7e-38af-95d33fb18ce1.htm" />
+  <HelpKINode Title="SourceVersion property" Url="html/a580a020-c24f-846a-c8f9-02dddaf74521.htm" />
+  <HelpKINode Title="sqlExecution method" Url="html/d54d8bd2-9d2e-dbc4-c6b8-2b944b739426.htm" />
+  <HelpKINode Title="sqlIsExist method" Url="html/db059433-5ee2-8d26-24e2-e0714c84be57.htm" />
+  <HelpKINode Title="SqlParameterAdapter class">
+    <HelpKINode Title="SqlParameterAdapter Class" Url="html/9f39dade-781b-d597-c101-1bd78c8b7ef9.htm" />
+    <HelpKINode Title="SqlParameterAdapter Members" Url="html/63710ceb-050f-958d-016d-962fc5930f59.htm" />
+    <HelpKINode Title="about SqlParameterAdapter class" Url="html/9f39dade-781b-d597-c101-1bd78c8b7ef9.htm" />
+    <HelpKINode Title="all members" Url="html/63710ceb-050f-958d-016d-962fc5930f59.htm" />
+    <HelpKINode Title="constructor" Url="html/b20fbd38-867e-6b08-ab77-384cee26f778.htm" />
+    <HelpKINode Title="methods" Url="html/f68a1ebf-5a51-c743-20f0-a6bc4dec44e0.htm" />
+    <HelpKINode Title="properties" Url="html/c477509f-893b-419a-2066-5908e0905152.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SqlParameterAdapter.DBPlaceHolder property" Url="html/8b3f6fdc-8cd8-d689-4b64-27df9061024a.htm" />
+  <HelpKINode Title="SqlParameterAdapter.SqlParameterAdapter constructor" Url="html/b20fbd38-867e-6b08-ab77-384cee26f778.htm" />
+  <HelpKINode Title="sqlRead method" Url="html/ccd08852-89ed-6833-06eb-11c4049abfd0.htm" />
+  <HelpKINode Title="sqlReadOneRow method" Url="html/29d514af-8d7f-ddea-c628-6cc333829d2f.htm" />
+  <HelpKINode Title="sqlReadScalar(Of T) method" Url="html/9116c789-9b2c-ebf6-a192-3c62384d45f3.htm" />
+  <HelpKINode Title="sqlReadScalar&lt;T&gt; method" Url="html/9116c789-9b2c-ebf6-a192-3c62384d45f3.htm" />
+  <HelpKINode Title="sqlReadToString method" Url="html/dfc56de0-2ccc-b16e-6359-a21250c38976.htm" />
+  <HelpKINode Title="SqlServer enumeration member" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
+  <HelpKINode Title="Table property" Url="html/68ba86be-963d-688c-2845-7420060c1dec.htm" />
+  <HelpKINode Title="toProviderType method" Url="html/c972aaec-f779-de49-7387-0e16ee364281.htm" />
+  <HelpKINode Title="toValue method" Url="html/721777ac-ddb2-eb05-42a4-4608fe563d4e.htm" />
+  <HelpKINode Title="transferData method" Url="html/70db7f83-a415-4547-913b-39aff5de61a0.htm" />
+  <HelpKINode Title="Type property" Url="html/56e4987c-a56f-f1e5-2ee2-c2ab7eacb277.htm" />
+  <HelpKINode Title="Value property">
+    <HelpKINode Title="DBEntityProperty.Value Property " Url="html/86cf2bc1-3640-858f-aead-7fc53eff7781.htm" />
+    <HelpKINode Title="DBExecutionParameter.Value Property " Url="html/e1f61998-70a9-88ad-4d05-e5eb8e9d3402.htm" />
+  </HelpKINode>
+  <HelpKINode Title="View property" Url="html/3c22d32e-c3ba-c028-efe0-63ede39bfe0f.htm" />
+  <HelpKINode Title="_aggrKeys field" Url="html/effc2afb-1839-e4d3-c400-c9ecffb33c23.htm" />
+  <HelpKINode Title="_keySeparator field" Url="html/0c93aad8-e8b4-29c7-5a3e-4bb86876729e.htm" />
+</HelpKI>
