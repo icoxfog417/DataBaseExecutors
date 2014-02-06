@@ -4,7 +4,8 @@ DataBaseExecutors
 DataBaseExecutors is simple database access tool for .NET.  
 You don't need to use DataReader or DataAdapter any longer . Just write SQL.  
 
-[API Documents is Here](http://icoxfog417.github.io/DataBaseExecutors/Index.html)
+[API Documents is Here](http://icoxfog417.github.io/DataBaseExecutors/Index.html)  
+[Download from Nuget](https://www.nuget.org/packages/DataBaseExecutors/)
 
 Officialy supports Oracle and SqlServer.
 
