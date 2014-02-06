@@ -22,12 +22,40 @@ Dim db As New DBExecution(ConnectionName)
 Dim count As Integer = db.sqlReadScalar(Of Integer)("SELECT COUNT(*) FROM tab")
 ```
 
-Execute
+Functional Recordset processing
+
+* Make xml of users (&lt;users&gt;&lt;user&gt;Mike&lt;/user&gt; ... &lt;/users&gt;)
+```
+Dim db As New DBExecution(ConnectionName)
+Dim xml As String = db.sqlReadToString("SELECT * FROM tab ",Address Of Me.fetch) 'apply function to each record
+
+Private Function fetch(ByVal reader As DbDataReader, ByVal counter As Long) As String
+  Return "<user>" + reader.GetStringOrDefault("NAME") + "</user>" 'return string is concatenated
+End Function
+```
+
+* Make list of user
+```
+Dim db As New DBExecution(ConnectionName)
+Dim users As List(Of User) = db.sqlRead(Of User)("SELECT * FROM tab ",Address Of Me.createUser)
+
+Private Function createUser(ByVal reader As DbDataReader, ByVal counter As Long) As User
+  Return New User(reader.GetIntegerOrDefault("ID"),reader.GetStringOrDefault("NAME"))
+End Function
+```
+
+Select 1 row as dictionary of column name and value
+```
+Dim db As New DBExecution(ConnectionName)
+Dim user As Dictionary(Of String,String) = db.sqlReadOneRow("SELECT * FROM tab WHERE ID = 1")
+```
+
+Execute Query(UPDATE/INSERT)
 ```
 Dim db As New DBExecution(ConnectionName)
 db.addFilter("pid", 10)
 db.addFilter("pName", "Mike")
-db.sqlExecution("UPDATE tab SET NAME = :pName WHERE id = :pId")
+db.sqlExecution("UPDATE tab SET NAME = :pName WHERE ID = :pId")
 ```
 
 Call database function
@@ -43,7 +71,7 @@ Dim user As New User(10,"Mike")
 user.Save(ConnectionName)
 user.Delete(ConnectionName)
 
-Dim users As List(Of User) = DBEntity.Read(Of User)("SELECT * FROM USER_TABLE")
+Dim users As List(Of User) = DBEntity.Read(Of User)("SELECT * FROM tab")
 ```
 
 About detail , Please see wiki .
