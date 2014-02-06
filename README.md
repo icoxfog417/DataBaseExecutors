@@ -30,7 +30,7 @@ Dim db As New DBExecution(ConnectionName)
 Dim xml As String = db.sqlReadToString("SELECT * FROM tab ",Address Of Me.fetch) 'apply function to each record
 
 Private Function fetch(ByVal reader As DbDataReader, ByVal counter As Long) As String
-  Return "<user>" + reader.GetStringOrDefault("NAME") + "</user>" 'return string is concatenated
+  Return "<user>" + reader.GetStringOrDefault("NAME") + "</user>"
 End Function
 ```
 
