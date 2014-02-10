@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' アセンブリ属性の値を確認します。
 
 <Assembly: AssemblyTitle("DataBaseExecutorsTest")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("MITSUI CHEMICALS")> 
+<Assembly: AssemblyDescription("Uni test code for DataBaseExecutors")> 
+<Assembly: AssemblyCompany("Takahiro Kubo")> 
 <Assembly: AssemblyProduct("DataBaseExecutorsTest")> 
-<Assembly: AssemblyCopyright("Copyright © MITSUI CHEMICALS 2013")> 
+<Assembly: AssemblyCopyright("Copyright © Takahiro Kubo")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

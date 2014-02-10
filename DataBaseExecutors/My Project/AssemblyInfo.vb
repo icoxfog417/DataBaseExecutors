@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' アセンブリ属性の値を確認します。
 
 <Assembly: AssemblyTitle("DataBaseExecutors")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("MITSUI CHEMICALS")> 
+<Assembly: AssemblyDescription("Simple And Functional Database Access Library for C# / VB.NET")> 
+<Assembly: AssemblyCompany("Takahiro Kubo")> 
 <Assembly: AssemblyProduct("DataBaseExecutors")> 
-<Assembly: AssemblyCopyright("Copyright © MITSUI CHEMICALS 2013")> 
+<Assembly: AssemblyCopyright("Copyright © Takahiro Kubo")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
