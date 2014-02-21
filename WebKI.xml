@@ -70,6 +70,7 @@
   <HelpKINode Title="createExecute method" Url="html/bcb13452-9923-4653-4126-4cebd6e54c39.htm" />
   <HelpKINode Title="createInstance method" Url="html/b1e6f779-95f3-c314-6560-2f8d54465f8c.htm" />
   <HelpKINode Title="createInstances method" Url="html/c23b827a-9d46-8d53-7abe-481895931b96.htm" />
+  <HelpKINode Title="createTable method" Url="html/9ddd7331-fad4-8f56-6866-d6b66500ac18.htm" />
   <HelpKINode Title="DataAggregator class">
     <HelpKINode Title="DataAggregator Class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm" />
     <HelpKINode Title="DataAggregator Members" Url="html/33b7db14-7cd0-70ec-2e9f-cc4ee221358b.htm" />
@@ -232,6 +233,7 @@
   <HelpKINode Title="DBExecution.beginTransaction method" Url="html/cf04efba-669a-7ba1-30fc-1974fbdc8be6.htm" />
   <HelpKINode Title="DBExecution.clearFilter method" Url="html/0bea9f43-7e35-7cce-667a-3d2bec6fc33e.htm" />
   <HelpKINode Title="DBExecution.CommandTimeout property" Url="html/317f4da1-2e99-cf06-221b-af60ce75a665.htm" />
+  <HelpKINode Title="DBExecution.createTable method" Url="html/9ddd7331-fad4-8f56-6866-d6b66500ac18.htm" />
   <HelpKINode Title="DBExecution.DBExecution constructor" Url="html/dca63868-137a-edc1-44fd-761992a7156c.htm" />
   <HelpKINode Title="DBExecution.Dispose method" Url="html/67680e10-753f-f75f-6cad-db014acc38a0.htm" />
   <HelpKINode Title="DBExecution.endTransaction method" Url="html/77c86ee3-3ca3-5877-ca91-21660162bbbe.htm" />
@@ -245,7 +247,7 @@
   <HelpKINode Title="DBExecution.Filter property" Url="html/cef5473a-a073-3bc8-2396-339a1a3b60f1.htm" />
   <HelpKINode Title="DBExecution.getErrorMsg method" Url="html/05f165b8-f1e9-73a4-f638-ac4700a8fe42.htm" />
   <HelpKINode Title="DBExecution.getRowAffected method" Url="html/3a4ae56d-cdaf-6336-c909-ba1c35274d57.htm" />
-  <HelpKINode Title="DBExecution.importTable method" Url="html/148a27d2-8fee-84f0-5994-0407059b27c1.htm" />
+  <HelpKINode Title="DBExecution.importTable method" Url="html/cbf36775-a804-cae9-ff4a-9168cbe8be04.htm" />
   <HelpKINode Title="DBExecution.readItemSafe method" Url="html/6a58bde2-17f0-15df-a60e-8c411192a270.htm" />
   <HelpKINode Title="DBExecution.sqlExecution method" Url="html/d54d8bd2-9d2e-dbc4-c6b8-2b944b739426.htm" />
   <HelpKINode Title="DBExecution.sqlIsExist method" Url="html/db059433-5ee2-8d26-24e2-e0714c84be57.htm" />
@@ -333,7 +335,7 @@
     <HelpKINode Title="IDBEntity Interface" Url="html/8ebd6ffd-bf83-16be-6198-31480e7ab35e.htm" />
     <HelpKINode Title="about IDBEntity interface" Url="html/8ebd6ffd-bf83-16be-6198-31480e7ab35e.htm" />
   </HelpKINode>
-  <HelpKINode Title="importTable method" Url="html/148a27d2-8fee-84f0-5994-0407059b27c1.htm" />
+  <HelpKINode Title="importTable method" Url="html/cbf36775-a804-cae9-ff4a-9168cbe8be04.htm" />
   <HelpKINode Title="IsDbGenerate property" Url="html/02a9e513-3b7e-a568-5c81-0773aaf7fcc0.htm" />
   <HelpKINode Title="IsEqual method" Url="html/6742e323-67de-f933-eda7-78283582b8e9.htm" />
   <HelpKINode Title="IsKey property" Url="html/d760150f-87e9-7985-c7ec-c3a26264e9d6.htm" />
