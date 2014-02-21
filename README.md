@@ -58,6 +58,13 @@ db.addFilter("pName", "Mike")
 db.sqlExecution("UPDATE tab SET NAME = :pName WHERE ID = :pId")
 ```
 
+Execute by DataTable
+```
+Dim db As New DBExecution(ConnectionName)
+db.importTable(table) 'insert/update rows by passing DataTable
+db.createTable(table) 'create table from DataTable(you can drop table before create by option).
+```
+
 Call database function
 ```
 Dim db As New DBExecution(ConnectionName)
