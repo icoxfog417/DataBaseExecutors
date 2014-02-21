@@ -797,11 +797,11 @@ Namespace DataBaseExecutors
         End Function
 
         ''' <summary>
-        ''' Import DataTable to Database.
+        ''' Create(or delete) table in database, and insert all rows in DataTable.
         ''' </summary>
         ''' <param name="isDropCreate">is drop or create table</param>
         ''' <remarks></remarks>
-        Public Function importTable(ByVal table As DataTable, Optional ByVal isDropCreate As Boolean = True) As List(Of String)
+        Public Function createTable(ByVal table As DataTable, Optional ByVal isDropCreate As Boolean = True) As List(Of String)
             Dim tableName As String = table.TableName
             Dim log As New List(Of String)
 
@@ -831,7 +831,8 @@ Namespace DataBaseExecutors
             End If
 
             'Insert data to table
-            For Each row As DataRow In table.Rows
+            For i As Integer = 1 To table.Rows.Count
+                Dim row As DataRow = table.Rows(i - 1)
                 Dim ins As String = "INSERT INTO " + tableName
 
                 Dim params = From x As DataColumn In table.Columns
@@ -848,13 +849,121 @@ Namespace DataBaseExecutors
                 Dim paramDic As Dictionary(Of String, Object) = params.ToDictionary(Function(p) p.pName, Function(p) p.pValue)
                 addFilter(paramDic)
 
-                If Not sqlExecution(ins) Then log.Add(_errMessage)
+                If Not sqlExecution(ins) Then log.Add(i.ToString + ":" + _errMessage)
 
             Next
 
             Return log
 
         End Function
+
+        ''' <summary>
+        ''' Import DataTable to database.<br/>
+        ''' Key is defined by DataTable.PrimaryKey. It is used by select query and if key match then update else insert.<br/>
+        ''' If you want to set updated time(timestamp), set "AsTimeStamp" to DataColumn.ExtendedProperties.<br/>
+        ''' And if you want to use default value when insert , set "UseDefault"
+        ''' <code>
+        ''' 'set "AsTimeStamp" if you want to set timestamp as string (else Strimg.Empty).
+        ''' column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 
+        ''' 
+        ''' 'set "UseDefault" if you want to use default value.
+        ''' column.ExtendedProperties.Add("UseDefault",True) 
+        ''' </code>
+        ''' </summary>
+        ''' <param name="table"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Function importTable(ByVal table As DataTable) As List(Of String)
+            If table Is Nothing OrElse table.PrimaryKey.Length = 0 Then Throw New Exception("DataTable is Nothing or PrimaryKey is not set")
+
+            Const TIMESTAMP_FORMAT As String = "AsTimeStamp"
+            Const USE_DEFAULT As String = "UseDefault"
+            Dim tableName As String = table.TableName
+            Dim keyNames As String() = table.PrimaryKey.Select(Function(p) p.ColumnName).ToArray
+            Dim log As New List(Of String)
+
+            Dim colDefine = From c As DataColumn In table.Columns
+                            Let isKey As Boolean = keyNames.Contains(c.ColumnName)
+                            Let isGenerated As Boolean = c.AutoIncrement OrElse (c.ExtendedProperties.Contains(USE_DEFAULT) AndAlso CBool(c.ExtendedProperties(USE_DEFAULT)))
+                            Let tspFormat As String = If(c.ExtendedProperties.Contains(TIMESTAMP_FORMAT), c.ExtendedProperties(TIMESTAMP_FORMAT).ToString, Nothing)
+                            Order By c.Ordinal
+                            Select c, isKey, isGenerated, tspFormat
+
+            Dim keyPart = Function(row As DataRow) As String
+                              Dim ps As New List(Of String)
+                              For i As Integer = 0 To UBound(keyNames)
+                                  Dim p As String = ":pKey" + i.ToString
+                                  addFilter(p, row(keyNames(i)))
+                                  ps.Add(keyNames(i) + " = " + p)
+                              Next
+                              Dim wherePart As String = String.Join(" AND ", ps)
+                              Return wherePart
+                          End Function
+
+            For i As Integer = 1 To table.Rows.Count
+                Dim row As DataRow = table.Rows(i - 1)
+
+                'Confirm does row exist in database
+                Dim rowCount As Integer = sqlReadScalar(Of Integer)("SELECT COUNT(*) FROM " + table.TableName + " WHERE " + keyPart(row))
+
+                If rowCount > 1 Then
+                    Throw New Exception("Multiple rows that have same key exist in database.")
+                Else
+
+                    Dim targets As New List(Of String)
+                    Dim pNames As New List(Of String)
+                    For Each col In colDefine
+                        Dim isAdd As Boolean = True
+
+                        If rowCount = 0 Then 'insert
+                            If col.isGenerated Then isAdd = False
+                        Else 'update
+                            If col.isKey Then isAdd = False
+                        End If
+
+                        If isAdd Then
+                            targets.Add(col.c.ColumnName)
+                            pNames.Add(":p" + col.c.ColumnName)
+                            If col.tspFormat IsNot Nothing Then 'If column is timestamp 
+                                If col.tspFormat = String.Empty Then
+                                    addFilter(":p" + col.c.ColumnName, DateTime.Now)
+                                Else
+                                    addFilter(":p" + col.c.ColumnName, DateTime.Now.ToString(col.tspFormat))
+                                End If
+                            Else
+                                addFilter(":p" + col.c.ColumnName, row(col.c.ColumnName))
+                            End If
+                        End If
+
+                    Next
+
+                    'Execute sql
+                    Dim sql As String = ""
+                    If rowCount = 0 Then 'insert
+                        sql = "INSERT INTO " + table.TableName + "( " + String.Join(",", targets) + " ) VALUES ( " + String.Join(",", pNames) + " )"
+
+                    Else 'update
+                        Dim makeSet = Iterator Function() As IEnumerable(Of String)
+                                          For t As Integer = 0 To targets.Count - 1
+                                              Yield targets(t) + " = " + pNames(t)
+                                          Next
+                                      End Function
+
+                        Dim setPart As String = String.Join(",", makeSet().ToArray)
+                        sql = "UPDATE " + table.TableName + " SET " + setPart + " WHERE " + keyPart(row)
+
+                    End If
+
+                    If Not sqlExecution(sql) Then log.Add(i.ToString + ":" + _errMessage)
+
+                End If
+
+            Next
+
+            Return log
+
+        End Function
+
 
         ''' <summary>
         ''' Initialize variables for result.

@@ -9,7 +9,7 @@ Public Class EntityExecutionText
     Private Const ConnectionName As String = "DefaultConnection"
 
     <ClassInitialize()>
-    Public Shared Sub etUp(context As TestContext)
+    Public Shared Sub setUp(context As TestContext)
         TestData.Create(ConnectionName)
     End Sub
 
@@ -39,9 +39,7 @@ Public Class EntityExecutionText
     Public Sub ExecuteEntity()
 
         Dim db As New DBExecution(ConnectionName)
-        Dim order As New SalesOrder
-        order.OrderNo = 10
-        order.OrderDetail = 100
+        Dim order As SalesOrder = TestData.createOrder()
         order.MaterialCode = "Grape"
         order.Quantity = 12.1
         order.OrderDate = New DateTime(2012, 1, 1)

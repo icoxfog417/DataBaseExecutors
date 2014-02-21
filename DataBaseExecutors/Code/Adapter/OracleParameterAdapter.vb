@@ -97,15 +97,20 @@ Namespace DataBaseExecutors.Adapter
         Public Overrides Function GetDefaultColumnType(type As Type) As String
             Dim columnType As String = ""
 
+            'Caution, Oracle 
             Select Case type
                 Case GetType(String)
                     columnType = "VARCHAR2(1500)"
+                Case GetType(Int16)
+                    columnType = "NUMBER(4)"
                 Case GetType(Integer), GetType(Int32)
-                    columnType = "NUMBER(15)"
+                    columnType = "NUMBER(9)"
+                Case GetType(Int64)
+                    columnType = "NUMBER(18)"
                 Case GetType(Double)
-                    columnType = "NUMBER(10,5)"
+                    columnType = "NUMBER(10,7)"
                 Case GetType(Decimal)
-                    columnType = "NUMBER(10,5)"
+                    columnType = "NUMBER(18,10)"
                 Case GetType(DateTime)
                     columnType = "DATE"
                 Case Else
