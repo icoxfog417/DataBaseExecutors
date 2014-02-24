@@ -943,13 +943,12 @@ Namespace DataBaseExecutors
                         sql = "INSERT INTO " + table.TableName + "( " + String.Join(",", targets) + " ) VALUES ( " + String.Join(",", pNames) + " )"
 
                     Else 'update
-                        Dim makeSet = Iterator Function() As IEnumerable(Of String)
-                                          For t As Integer = 0 To targets.Count - 1
-                                              Yield targets(t) + " = " + pNames(t)
-                                          Next
-                                      End Function
+                        Dim eachSets As New List(Of String)
+                        For t As Integer = 0 To targets.Count - 1
+                            eachSets.Add(targets(t) + " = " + pNames(t))
+                        Next
 
-                        Dim setPart As String = String.Join(",", makeSet().ToArray)
+                        Dim setPart As String = String.Join(",", eachSets)
                         sql = "UPDATE " + table.TableName + " SET " + setPart + " WHERE " + keyPart(row)
 
                     End If
