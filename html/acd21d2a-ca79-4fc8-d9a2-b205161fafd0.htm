@@ -89,18 +89,27 @@
  It is taken from the return of ExecuteNonQuery. So the value depends on each database provider's implementation.
  </div></td></tr><tr data="public;inherited;notNetfw;"><td><img src="./../icons/pubmethod.gif" alt="Public method" title="Public method" /></td><td><span class="nolink">GetType</span></td><td> (Inherited from <span class="nolink">Object</span>.)</td></tr><tr data="public;declared;notNetfw;"><td><img src="./../icons/pubmethod.gif" alt="Public method" title="Public method" /></td><td><a href="cbf36775-a804-cae9-ff4a-9168cbe8be04.htm" target="">importTable</a></td><td><div class="summary">
  Import DataTable to database.<br />
- Key is defined by DataTable.PrimaryKey. If key match then update else insert.<br />
- If you want to set updated time, set "AsTimeStamp" to DataColumn.ExtendedProperties.<br />
- And if you want to use default value when insert row , set "UseDefault"
- <div id="ID0EAAAMBDAAAAA" class="OH_CodeSnippetContainer"><div class="OH_CodeSnippetContainerTabs" id="ID0EAAAMBDAAAAA_tabs"></div><div id="ID0EAAAMBDAAAAA_codecollection" class="OH_CodeSnippetContainerCodeCollection"><div class="OH_CodeSnippetToolBar"><div class="OH_CodeSnippetToolBarText"><a id="ID0EAAAMBDAAAAA_ViewColorized" href="#" onclick="javascript:ExchangeTitleContent('ID0EAAAMBDAAAAA','4')" title="View Colorized" style="display: none">View Colorized</a><a id="ID0EAAAMBDAAAAA_copycode" href="#" onclick="javascript:CopyToClipboard('ID0EAAAMBDAAAAA','4')" title="Copy to Clipboard">Copy to Clipboard</a><a id="ID0EAAAMBDAAAAA_PrintText" class="OH_PrintText" href="#" onclick="javascript:Print('ID0EAAAMBDAAAAA','4')" title="Print">Print</a></div></div><div id="ID0EAAAMBDAAAAA_code_Div1" class="OH_CodeSnippetContainerCode" style="display: block"><pre>'<span class="highlight-keyword">set</span> <span class="highlight-literal">"AsTimeStamp"</span> <span class="highlight-keyword">if</span> you want to <span class="highlight-keyword">set</span> timestamp <span class="highlight-keyword">as</span> <span class="highlight-keyword">string</span> (<span class="highlight-keyword">else</span> Strimg.Empty).
-column.ExtendedProperties.Add(<span class="highlight-literal">"AsTimeStamp"</span>,<span class="highlight-literal">"yyyy/MM/dd"</span>) 
+ Key is defined by DataTable.PrimaryKey. It is used by select query and if key match then update else insert.<br />
+ You can set option to DataColumn.ExtendedProperties.<br />
+ * AsTimeStamp : If this property is set , the column's value is set from DateTime.Now. You can set date time format(like "yyyy/MM/dd") .<br />
+ * UseDefault : If you want to use default value when insert , set this property True.<br />
+ * Ignore : If you want to ignore this column , set this property True.<br /><div id="ID0EAAAMBDAAAAA" class="OH_CodeSnippetContainer"><div class="OH_CodeSnippetContainerTabs" id="ID0EAAAMBDAAAAA_tabs"></div><div id="ID0EAAAMBDAAAAA_codecollection" class="OH_CodeSnippetContainerCodeCollection"><div class="OH_CodeSnippetToolBar"><div class="OH_CodeSnippetToolBarText"><a id="ID0EAAAMBDAAAAA_ViewColorized" href="#" onclick="javascript:ExchangeTitleContent('ID0EAAAMBDAAAAA','4')" title="View Colorized" style="display: none">View Colorized</a><a id="ID0EAAAMBDAAAAA_copycode" href="#" onclick="javascript:CopyToClipboard('ID0EAAAMBDAAAAA','4')" title="Copy to Clipboard">Copy to Clipboard</a><a id="ID0EAAAMBDAAAAA_PrintText" class="OH_PrintText" href="#" onclick="javascript:Print('ID0EAAAMBDAAAAA','4')" title="Print">Print</a></div></div><div id="ID0EAAAMBDAAAAA_code_Div1" class="OH_CodeSnippetContainerCode" style="display: block"><pre>'AsTimeStamp
+column.ExtendedProperties.Add(<span class="highlight-literal">"AsTimeStamp"</span>,String.Empty) 'treated <span class="highlight-keyword">as</span> Date
+column.ExtendedProperties.Add(<span class="highlight-literal">"AsTimeStamp"</span>,<span class="highlight-literal">"yyyy/MM/dd"</span>) 'treated <span class="highlight-keyword">as</span> formatted <span class="highlight-keyword">string</span>
 
-'<span class="highlight-keyword">set</span> <span class="highlight-literal">"UseDefault"</span> <span class="highlight-keyword">if</span> you want to use <span class="highlight-keyword">default</span> <span class="highlight-keyword">value</span>.
-column.ExtendedProperties.Add(<span class="highlight-literal">"UseDefault"</span>,True)</pre></div><div id="ID0EAAAMBDAAAAA_code_Plain_Div1" class="OH_CodeSnippetContainerCode" style="display: none"><pre>'set "AsTimeStamp" if you want to set timestamp as string (else Strimg.Empty).
-column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 
+'UseDefault
+column.ExtendedProperties.Add(<span class="highlight-literal">"UseDefault"</span>,True)
 
-'set "UseDefault" if you want to use default value.
-column.ExtendedProperties.Add("UseDefault",True)</pre></div></div></div><script>addSpecificTextLanguageTagSet('ID0EAAAMBDAAAAA');</script></div></td></tr><tr data="protected;inherited;notNetfw;"><td><img src="./../icons/protmethod.gif" alt="Protected method" title="Protected method" /></td><td><span class="nolink">MemberwiseClone</span></td><td> (Inherited from <span class="nolink">Object</span>.)</td></tr><tr data="public;static;declared;notNetfw;"><td><img src="./../icons/pubmethod.gif" alt="Public method" title="Public method" /><img src="./../icons/static.gif" alt="Static member" title="Static member" /></td><td><a href="6e0d795d-51b0-7de7-4578-589012fbc578.htm" target="">readItemSafe(DbDataReader<span id="ID0EBABKBDAAAAA"> </span><script type="text/javascript">
+'Ignore
+column.ExtendedProperties.Add(<span class="highlight-literal">"Ignore"</span>,True)</pre></div><div id="ID0EAAAMBDAAAAA_code_Plain_Div1" class="OH_CodeSnippetContainerCode" style="display: none"><pre>'AsTimeStamp
+column.ExtendedProperties.Add("AsTimeStamp",String.Empty) 'treated as Date
+column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 'treated as formatted string
+
+'UseDefault
+column.ExtendedProperties.Add("UseDefault",True)
+
+'Ignore
+column.ExtendedProperties.Add("Ignore",True)</pre></div></div></div><script>addSpecificTextLanguageTagSet('ID0EAAAMBDAAAAA');</script></div></td></tr><tr data="protected;inherited;notNetfw;"><td><img src="./../icons/protmethod.gif" alt="Protected method" title="Protected method" /></td><td><span class="nolink">MemberwiseClone</span></td><td> (Inherited from <span class="nolink">Object</span>.)</td></tr><tr data="public;static;declared;notNetfw;"><td><img src="./../icons/pubmethod.gif" alt="Public method" title="Public method" /><img src="./../icons/static.gif" alt="Static member" title="Static member" /></td><td><a href="6e0d795d-51b0-7de7-4578-589012fbc578.htm" target="">readItemSafe(DbDataReader<span id="ID0EBABKBDAAAAA"> </span><script type="text/javascript">
 					addToLanSpecTextIdSet("ID0EBABKBDAAAAA?vb=|cpp=%|cs=|fs=|nu=");
 				</script>, Int32)</a></td><td><div class="summary">
  Get item value by id (handle DbNull as String.Empty).
