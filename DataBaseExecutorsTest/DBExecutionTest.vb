@@ -70,6 +70,48 @@ Public Class DBExecutionTest
 
     End Sub
 
+    <TestMethod()>
+    Public Sub SqlImportDataProperty()
+
+        Dim db = New DBExecution(ConnectionName)
+        Dim table As DataTable = TestData.toDataTable(Nothing)
+        Dim defaultDate As DateTime = New DateTime(1100, 1, 1)
+        Dim now As DateTime = DateTime.Now
+
+        'prepare test data
+        Dim o As SalesOrder = TestData.createOrder() 'will update
+        o.MaterialCode = "Material9000"
+        o.Quantity = 10
+        o.OrderDate = defaultDate
+        o.DeliverDate = defaultDate
+        o.CommentText = "Update is Executed"
+
+        'set primary key
+        table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
+
+        'set extend option
+        table.Columns("OrderDate").ExtendedProperties.Add("AsTimeStamp", "yyyyMMdd") 'as formated string
+        table.Columns("DeliverDate").ExtendedProperties.Add("AsTimeStamp", String.Empty) ' as datetime
+        table.Columns("CommentText").ExtendedProperties.Add("Ignore", True) 'ignore this column
+
+        TestData.importList(table, New List(Of SalesOrder) From {o})
+
+        'execute
+        Dim logs As Dictionary(Of Integer, String) = db.importTable(table)
+
+        'confirm
+        Assert.AreEqual(0, logs.Count)
+
+        Dim stored As DataTable = selectOrder(db, o)
+
+        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored.Rows(0)("OrderDate").ToString)
+        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
+        Assert.IsTrue(String.IsNullOrEmpty(stored.Rows(0)("CommentText").ToString))
+
+        deleteOrder(db, o)
+
+    End Sub
+
 
     <TestMethod()>
     Public Sub SqlImportData()
@@ -101,19 +143,16 @@ Public Class DBExecutionTest
         table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
 
         'set optional parameter
-        table.Columns("OrderDate").ExtendedProperties.Add("AsTimeStamp", "yyyyMMdd") 'as formated string
-        table.Columns("DeliverDate").ExtendedProperties.Add("AsTimeStamp", String.Empty) ' as datetime
         table.Columns("CommentText").ExtendedProperties.Add("UseDefault", True) ' is not include when insert
 
         'prepare DataTable
         TestData.importList(table, New List(Of SalesOrder) From {o1, o2})
 
         'execute
-        Dim logs As List(Of String) = db.importTable(table)
+        Dim logs As Dictionary(Of Integer, String) = db.importTable(table)
 
         'confirm
         Assert.AreEqual(0, logs.Count)
-        logs.ForEach(Sub(r) Assert.AreEqual(String.Empty, r))
 
         Dim stored As DataTable = selectOrder(db, o1)
         Dim o2Stored As DataTable = selectOrder(db, o2)
@@ -133,8 +172,8 @@ Public Class DBExecutionTest
 
             Assert.AreEqual(o.MaterialCode, row("Material"))
             Assert.AreEqual(o.Quantity, row("Quan"))
-            Assert.IsTrue("11000101" < row("OrderDate"))
-            Assert.IsTrue(defaultDate < row("DeliverDate"))
+            Assert.AreEqual(defaultDate.ToString("yyyyMMdd"), row("OrderDate").ToString())
+            Assert.AreEqual(defaultDate.ToString("yyyyMMddHHmmss"), CDate(row("DeliverDate")).ToString("yyyyMMddHHmmss"))
 
         Next
 

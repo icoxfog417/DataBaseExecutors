@@ -801,9 +801,9 @@ Namespace DataBaseExecutors
         ''' </summary>
         ''' <param name="isDropCreate">is drop or create table</param>
         ''' <remarks></remarks>
-        Public Function createTable(ByVal table As DataTable, Optional ByVal isDropCreate As Boolean = True) As List(Of String)
+        Public Function createTable(ByVal table As DataTable, Optional ByVal isDropCreate As Boolean = True) As Dictionary(Of Integer, String)
             Dim tableName As String = table.TableName
-            Dim log As New List(Of String)
+            Dim log As New Dictionary(Of Integer, String)
 
             'Set up table
             If isDropCreate Then
@@ -849,7 +849,7 @@ Namespace DataBaseExecutors
                 Dim paramDic As Dictionary(Of String, Object) = params.ToDictionary(Function(p) p.pName, Function(p) p.pValue)
                 addFilter(paramDic)
 
-                If Not sqlExecution(ins) Then log.Add(i.ToString + ":" + _errMessage)
+                If Not sqlExecution(ins) Then log.Add(i, _errMessage)
 
             Next
 
@@ -860,34 +860,47 @@ Namespace DataBaseExecutors
         ''' <summary>
         ''' Import DataTable to database.<br/>
         ''' Key is defined by DataTable.PrimaryKey. It is used by select query and if key match then update else insert.<br/>
-        ''' If you want to set updated time(timestamp), set "AsTimeStamp" to DataColumn.ExtendedProperties.<br/>
-        ''' And if you want to use default value when insert , set "UseDefault"
+        ''' You can set option to DataColumn.ExtendedProperties.<br/>
+        ''' * AsTimeStamp : If this property is set , the column's value is set from DateTime.Now. You can set date time format(like "yyyy/MM/dd") .<br/>
+        ''' * UseDefault : If you want to use default value when insert , set this property True.<br/>
+        ''' * Ignore : If you want to ignore this column , set this property True.<br/>
         ''' <code>
-        ''' 'set "AsTimeStamp" if you want to set timestamp as string (else Strimg.Empty).
-        ''' column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 
+        ''' 'AsTimeStamp
+        ''' column.ExtendedProperties.Add("AsTimeStamp",String.Empty) 'treated as Date
+        ''' column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 'treated as formatted string
         ''' 
-        ''' 'set "UseDefault" if you want to use default value.
-        ''' column.ExtendedProperties.Add("UseDefault",True) 
+        ''' 'UseDefault
+        ''' column.ExtendedProperties.Add("UseDefault",True)
+        ''' 
+        ''' 'Ignore
+        ''' column.ExtendedProperties.Add("Ignore",True)
+        ''' 
         ''' </code>
         ''' </summary>
         ''' <param name="table"></param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Function importTable(ByVal table As DataTable) As List(Of String)
+        Public Function importTable(ByVal table As DataTable) As Dictionary(Of Integer, String)
             If table Is Nothing OrElse table.PrimaryKey.Length = 0 Then Throw New Exception("DataTable is Nothing or PrimaryKey is not set")
 
             Const TIMESTAMP_FORMAT As String = "AsTimeStamp"
             Const USE_DEFAULT As String = "UseDefault"
+            Const IGNORE As String = "Ignore"
+
             Dim tableName As String = table.TableName
             Dim keyNames As String() = table.PrimaryKey.Select(Function(p) p.ColumnName).ToArray
-            Dim log As New List(Of String)
+            Dim log As New Dictionary(Of Integer, String)
+            Dim expropAsBool = Function(col As DataColumn, exprop As String) As Boolean
+                                   Return col.ExtendedProperties.Contains(exprop) AndAlso CBool(col.ExtendedProperties(exprop))
+                               End Function
 
             Dim colDefine = From c As DataColumn In table.Columns
                             Let isKey As Boolean = keyNames.Contains(c.ColumnName)
-                            Let isGenerated As Boolean = c.AutoIncrement OrElse (c.ExtendedProperties.Contains(USE_DEFAULT) AndAlso CBool(c.ExtendedProperties(USE_DEFAULT)))
+                            Let isGenerated As Boolean = c.AutoIncrement OrElse expropAsBool(c, USE_DEFAULT)
+                            Let isIgnore As Boolean = expropAsBool(c, IGNORE)
                             Let tspFormat As String = If(c.ExtendedProperties.Contains(TIMESTAMP_FORMAT), c.ExtendedProperties(TIMESTAMP_FORMAT).ToString, Nothing)
                             Order By c.Ordinal
-                            Select c, isKey, isGenerated, tspFormat
+                            Select c, isKey, isGenerated, isIgnore, tspFormat
 
             Dim keyPart = Function(row As DataRow) As String
                               Dim ps As New List(Of String)
@@ -920,6 +933,7 @@ Namespace DataBaseExecutors
                         Else 'update
                             If col.isKey Then isAdd = False
                         End If
+                        If col.isIgnore Then isAdd = False
 
                         If isAdd Then
                             targets.Add(col.c.ColumnName)
@@ -953,7 +967,7 @@ Namespace DataBaseExecutors
 
                     End If
 
-                    If Not sqlExecution(sql) Then log.Add(i.ToString + ":" + _errMessage)
+                    If Not sqlExecution(sql) Then log.Add(i, _errMessage)
 
                 End If
 
