@@ -9,6 +9,10 @@ You don't need to use DataReader or DataAdapter any longer . Just write SQL.
 
 Officialy supports Oracle and SqlServer.
 
+Related Repositories
+
+* [ASP.NET DbPerformanceChecker](https://github.com/icoxfog417/ASPNETDbPerformanceChecker)
+
 # How to use
 Select
 ```
@@ -74,11 +78,18 @@ Dim result As String = db.executeDBFunction(Of String)("GET_USER_NAME",userId)
 
 Entity Query
 ```
+Dim users As List(Of User) = DBEntity.Read(Of User)("SELECT * FROM tab",ConnectionName)
+
+Dim db As New DBExecution(ConnectionName)
+db.addFilter("pId", 10)
+Dim u As User = DBEntity.Read(Of User)("SELECT * FROM tab WHERE UserId = @pId",db).FirstOrDefault
+```
+
+Entity Execution
+```
 Dim user As New User(10,"Mike")
 user.Save(ConnectionName)
 user.Delete(ConnectionName)
-
-Dim users As List(Of User) = DBEntity.Read(Of User)("SELECT * FROM tab")
 ```
 
 About detail , Please see wiki .
