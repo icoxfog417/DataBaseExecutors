@@ -861,122 +861,37 @@ Namespace DataBaseExecutors
         ''' Import DataTable to database.<br/>
         ''' Key is defined by DataTable.PrimaryKey. It is used by select query and if key match then update else insert.<br/>
         ''' You can set option to DataColumn.ExtendedProperties.<br/>
-        ''' * AsTimeStamp : If this property is set , the column's value is set from DateTime.Now. You can set date time format(like "yyyy/MM/dd") .<br/>
-        ''' * UseDefault : If you want to use default value when insert , set this property True.<br/>
-        ''' * Ignore : If you want to ignore this column , set this property True.<br/>
-        ''' <code>
-        ''' 'AsTimeStamp
-        ''' column.ExtendedProperties.Add("AsTimeStamp",String.Empty) 'treated as Date
-        ''' column.ExtendedProperties.Add("AsTimeStamp","yyyy/MM/dd") 'treated as formatted string
-        ''' 
-        ''' 'UseDefault
-        ''' column.ExtendedProperties.Add("UseDefault",True)
-        ''' 
-        ''' 'Ignore
-        ''' column.ExtendedProperties.Add("Ignore",True)
-        ''' 
-        ''' </code>
+        ''' * <see cref="DBExtensions.AddPropertyForTimeStamp">For Time stamp value</see><br/>
+        ''' * <see cref="DBExtensions.AddPropertyForUseDefault">For using table default value setting</see><br/>
+        ''' * <see cref="DBExtensions.AddPropertyForIgnore">For ignoring column</see><br/>
         ''' </summary>
+        ''' Return error / or messaged rows
         ''' <param name="table"></param>
+        ''' <param name="validator">validator for each row. if set RowInfo.IsValid=False,then row is ignored.</param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Function importTable(ByVal table As DataTable) As Dictionary(Of Integer, String)
-            If table Is Nothing OrElse table.PrimaryKey.Length = 0 Then Throw New Exception("DataTable is Nothing or PrimaryKey is not set")
+        Public Function importTable(ByVal table As DataTable, Optional ByVal validator As RowInfo.validateRowInfo = Nothing) As List(Of RowInfo)
 
-            Const TIMESTAMP_FORMAT As String = "AsTimeStamp"
-            Const USE_DEFAULT As String = "UseDefault"
-            Const IGNORE As String = "Ignore"
+            Dim log As New List(Of RowInfo)
+            Dim rowInfos As List(Of RowInfo) = table.RowInfos
 
-            Dim tableName As String = table.TableName
-            Dim keyNames As String() = table.PrimaryKey.Select(Function(p) p.ColumnName).ToArray
-            Dim log As New Dictionary(Of Integer, String)
-            Dim expropAsBool = Function(col As DataColumn, exprop As String) As Boolean
-                                   Return col.ExtendedProperties.Contains(exprop) AndAlso CBool(col.ExtendedProperties(exprop))
-                               End Function
-
-            Dim colDefine = From c As DataColumn In table.Columns
-                            Let isKey As Boolean = keyNames.Contains(c.ColumnName)
-                            Let isGenerated As Boolean = c.AutoIncrement OrElse expropAsBool(c, USE_DEFAULT)
-                            Let isIgnore As Boolean = expropAsBool(c, IGNORE)
-                            Let tspFormat As String = If(c.ExtendedProperties.Contains(TIMESTAMP_FORMAT), c.ExtendedProperties(TIMESTAMP_FORMAT).ToString, Nothing)
-                            Order By c.Ordinal
-                            Select c, isKey, isGenerated, isIgnore, tspFormat
-
-            Dim keyPart = Function(row As DataRow) As String
-                              Dim ps As New List(Of String)
-                              For i As Integer = 0 To UBound(keyNames)
-                                  Dim p As String = ":pKey" + i.ToString
-                                  addFilter(p, row(keyNames(i)))
-                                  ps.Add(keyNames(i) + " = " + p)
-                              Next
-                              Dim wherePart As String = String.Join(" AND ", ps)
-                              Return wherePart
-                          End Function
-
-            For i As Integer = 1 To table.Rows.Count
-                Dim row As DataRow = table.Rows(i - 1)
-
-                'Confirm does row exist in database
-                Dim rowCount As Integer = sqlReadScalar(Of Integer)("SELECT COUNT(*) FROM " + table.TableName + " WHERE " + keyPart(row))
-
-                If rowCount > 1 Then
-                    Throw New Exception("Multiple rows that have same key exist in database.")
-                Else
-
-                    Dim targets As New List(Of String)
-                    Dim pNames As New List(Of String)
-                    For Each col In colDefine
-                        Dim isAdd As Boolean = True
-
-                        If rowCount = 0 Then 'insert
-                            If col.isGenerated Then isAdd = False
-                        Else 'update
-                            If col.isKey Then isAdd = False
-                        End If
-                        If col.isIgnore Then isAdd = False
-
-                        If isAdd Then
-                            targets.Add(col.c.ColumnName)
-                            pNames.Add(":p" + col.c.ColumnName)
-                            If col.tspFormat IsNot Nothing Then 'If column is timestamp 
-                                If col.tspFormat = String.Empty Then
-                                    addFilter(":p" + col.c.ColumnName, DateTime.Now)
-                                Else
-                                    addFilter(":p" + col.c.ColumnName, DateTime.Now.ToString(col.tspFormat))
-                                End If
-                            Else
-                                addFilter(":p" + col.c.ColumnName, row(col.c.ColumnName))
-                            End If
-                        End If
-
-                    Next
-
-                    'Execute sql
-                    Dim sql As String = ""
-                    If rowCount = 0 Then 'insert
-                        sql = "INSERT INTO " + table.TableName + "( " + String.Join(",", targets) + " ) VALUES ( " + String.Join(",", pNames) + " )"
-
-                    Else 'update
-                        Dim eachSets As New List(Of String)
-                        For t As Integer = 0 To targets.Count - 1
-                            eachSets.Add(targets(t) + " = " + pNames(t))
-                        Next
-
-                        Dim setPart As String = String.Join(",", eachSets)
-                        sql = "UPDATE " + table.TableName + " SET " + setPart + " WHERE " + keyPart(row)
-
-                    End If
-
-                    If Not sqlExecution(sql) Then log.Add(i, _errMessage)
-
+            For i As Integer = 1 To rowInfos.Count
+                Dim r As RowInfo = rowInfos(i - 1)
+                If validator IsNot Nothing Then
+                    r = validator(r)
                 End If
 
+                Dim result As Boolean = r.Save(Me)
+                If Not result Then 'error occued when execute
+                    log.Add(r)
+                ElseIf Not r.IsValid Then 'validation error
+                    log.Add(r)
+                End If
             Next
 
             Return log
 
         End Function
-
 
         ''' <summary>
         ''' Initialize variables for result.

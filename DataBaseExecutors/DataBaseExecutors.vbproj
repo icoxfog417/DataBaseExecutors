@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Adapter\AbsDBParameterAdapter.vb" />
+    <Compile Include="Code\ColumnProperty.vb" />
     <Compile Include="Code\Entity\DBEntityAttribute.vb" />
     <Compile Include="Code\Entity\DBEntityExtensions.vb" />
     <Compile Include="Code\ProviderType.vb" />
@@ -78,6 +79,7 @@
     <Compile Include="Code\DBExtensions.vb" />
     <Compile Include="Code\Adapter\OracleParameterAdapter.vb" />
     <Compile Include="Code\Adapter\SqlParameterAdapter.vb" />
+    <Compile Include="Code\RowInfo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
