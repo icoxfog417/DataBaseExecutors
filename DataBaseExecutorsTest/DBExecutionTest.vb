@@ -71,50 +71,7 @@ Public Class DBExecutionTest
     End Sub
 
     <TestMethod()>
-    Public Sub SqlImportDataProperty()
-
-        Dim db = New DBExecution(ConnectionName)
-        Dim table As DataTable = TestData.toDataTable(Nothing)
-        Dim defaultDate As DateTime = New DateTime(1100, 1, 1)
-        Dim now As DateTime = DateTime.Now
-
-        'prepare test data
-        Dim o As SalesOrder = TestData.createOrder() 'will update
-        o.MaterialCode = "Material9000"
-        o.Quantity = 10
-        o.OrderDate = defaultDate
-        o.DeliverDate = defaultDate
-        o.CommentText = "Update is Executed"
-
-        'set primary key
-        table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
-
-        'set extend option
-        table.Columns("OrderDate").ExtendedProperties.Add("AsTimeStamp", "yyyyMMdd") 'as formated string
-        table.Columns("DeliverDate").ExtendedProperties.Add("AsTimeStamp", String.Empty) ' as datetime
-        table.Columns("CommentText").ExtendedProperties.Add("Ignore", True) 'ignore this column
-
-        TestData.importList(table, New List(Of SalesOrder) From {o})
-
-        'execute
-        Dim logs As Dictionary(Of Integer, String) = db.importTable(table)
-
-        'confirm
-        Assert.AreEqual(0, logs.Count)
-
-        Dim stored As DataTable = selectOrder(db, o)
-
-        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored.Rows(0)("OrderDate").ToString)
-        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
-        Assert.IsTrue(String.IsNullOrEmpty(stored.Rows(0)("CommentText").ToString))
-
-        deleteOrder(db, o)
-
-    End Sub
-
-
-    <TestMethod()>
-    Public Sub SqlImportData()
+    Public Sub ImportData()
 
         Dim db = New DBExecution(ConnectionName)
         Dim table As DataTable = TestData.toDataTable(Nothing)
@@ -135,6 +92,7 @@ Public Class DBExecutionTest
         o2.DeliverDate = defaultDate
         o2.CommentText = "comment is set UseDefault so it won't be set"
 
+        'prepare data for update
         db.addFilter("pNo", o1.OrderNo)
         db.addFilter("pDetail", o1.OrderDetail)
         db.sqlExecution("INSERT INTO " + TestData.TableName + "(OrderNo,OrderDetail) VALUES ( :pNo,:pDetail) ")
@@ -149,7 +107,7 @@ Public Class DBExecutionTest
         TestData.importList(table, New List(Of SalesOrder) From {o1, o2})
 
         'execute
-        Dim logs As Dictionary(Of Integer, String) = db.importTable(table)
+        Dim logs As List(Of RowInfo) = db.importTable(table)
 
         'confirm
         Assert.AreEqual(0, logs.Count)
@@ -181,6 +139,96 @@ Public Class DBExecutionTest
         deleteOrder(db, o1)
         deleteOrder(db, o2)
 
+
+    End Sub
+
+    <TestMethod()>
+    Public Sub ImportDataWithProperty()
+
+        Dim db = New DBExecution(ConnectionName)
+        Dim table As DataTable = TestData.toDataTable(Nothing)
+        Dim defaultDate As DateTime = New DateTime(1100, 1, 1)
+        Dim now As DateTime = DateTime.Now
+
+        'prepare test data
+        Dim o As SalesOrder = TestData.createOrder() 'will update
+        o.MaterialCode = "Material9000"
+        o.Quantity = 10
+        o.OrderDate = defaultDate
+        o.DeliverDate = defaultDate
+        o.CommentText = "Update is Executed"
+
+        'set primary key
+        table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
+
+        'set extend option
+        table.Columns("OrderDate").AddPropertyForTimeStamp("yyyyMMdd") 'as formated string
+        table.Columns("DeliverDate").AddPropertyForTimeStamp() ' as datetime
+        table.Columns("CommentText").AddPropertyForIgnore() 'ignore this column
+
+        TestData.importList(table, New List(Of SalesOrder) From {o})
+
+        'execute
+        Dim logs As List(Of RowInfo) = db.importTable(table)
+
+        'confirm
+        Assert.AreEqual(0, logs.Count)
+
+        Dim stored As DataTable = selectOrder(db, o)
+
+        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored.Rows(0)("OrderDate").ToString)
+        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
+        Assert.IsTrue(String.IsNullOrEmpty(stored.Rows(0)("CommentText").ToString))
+
+        deleteOrder(db, o)
+
+    End Sub
+
+    <TestMethod()>
+    Public Sub ImportDataWithValidation()
+
+        Dim db = New DBExecution(ConnectionName)
+        Dim table As DataTable = TestData.toDataTable(Nothing)
+        Dim msg As String = "Quantity is Checked"
+
+        'prepare test data
+        Dim o1 As SalesOrder = TestData.createOrder()
+        o1.MaterialCode = "MaterialAAA"
+        o1.Quantity = 900
+
+        Dim o2 As SalesOrder = TestData.createOrder()
+        o2.MaterialCode = "MaterialBBB"
+        o2.Quantity = 100
+
+        'set primary key
+        table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
+
+        TestData.importList(table, New List(Of SalesOrder) From {o1, o2})
+
+        'execute
+        Dim logs As List(Of RowInfo) = db.importTable(table, Function(rowInfo As RowInfo) As RowInfo
+                                                                 Dim newInfo As New RowInfo(rowInfo)
+
+                                                                 'Validation
+                                                                 If newInfo.RowValues("Quan") > 500 Then
+                                                                     newInfo.Messages.Add("Too match quantity!!")
+                                                                     newInfo.IsValid = False
+                                                                 End If
+
+                                                                 'Convert Value
+                                                                 newInfo.RowValues("CommentText") = msg
+
+                                                                 Return newInfo
+                                                             End Function)
+
+        'confirm(1 validation error)
+        Assert.AreEqual(1, logs.Count)
+
+        Dim stored As DataTable = selectOrder(db, o2)
+        Assert.AreEqual(msg, stored.Rows(0)("CommentText"))
+
+        deleteOrder(db, o1)
+        deleteOrder(db, o2)
 
     End Sub
 
