@@ -1,23 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="a89c3c78-86f7-4ed2-a85a-0163f4efd222" Title="DataBaseExecutors Namespace" Url="html/9d62bfc7-cda5-08c6-8d01-3a250c0fed24.htm">
-    <HelpTOCNode Id="87491ea1-a29f-441d-8313-ce13910aca87" Title="DbDataReaderExtension Class" Url="html/5c43e9e9-f0e4-813f-c86d-a07a88cfdec6.htm">
-      <HelpTOCNode Title="DbDataReaderExtension Members" Url="html/201b1afa-0b88-40a4-a5aa-4831f1c60c50.htm" />
-      <HelpTOCNode Id="b3c6aa1d-e2bc-437d-8c9d-0e8f73ad9df3" Title="DbDataReaderExtension Methods" Url="html/9c4d2bd7-9ea4-e384-f3b1-ff4a368bf482.htm">
-        <HelpTOCNode Title="GetDecimalOrDefault Method " Url="html/2f0f58df-2940-1806-1c04-09d998476f77.htm" />
-        <HelpTOCNode Title="GetIntegerOrDefault Method " Url="html/92138ce1-3f33-09b8-6cd5-dbd26f31deec.htm" />
-        <HelpTOCNode Title="GetStringOrDefault Method " Url="html/58d3c10f-81f4-e3ed-b7de-36f86391e625.htm" />
+  <HelpTOCNode Id="f364d111-c157-4c27-93f9-dce6e582434f" Title="DataBaseExecutors Namespace" Url="html/9d62bfc7-cda5-08c6-8d01-3a250c0fed24.htm">
+    <HelpTOCNode Id="a1342fd8-9f72-4ac3-8b0f-50473354be18" Title="ColumnProperty Class" Url="html/ca267a00-24a2-3d63-32bf-a2ee1907c212.htm">
+      <HelpTOCNode Title="ColumnProperty Members" Url="html/5cc74b6c-6919-d784-4874-4292985c0b87.htm" />
+      <HelpTOCNode Id="fcbbba87-788e-4888-b2b1-e43d98138267" Title="ColumnProperty Fields" Url="html/42697f58-9d01-f89d-c9f2-d3518da1dd03.htm">
+        <HelpTOCNode Title="IGNORE Field" Url="html/e6d092ff-1ce1-8e50-d7e2-6a92708022af.htm" />
+        <HelpTOCNode Title="TIMESTAMP_FORMAT Field" Url="html/ab9a2162-b8e2-86c8-276d-d887d8dd953a.htm" />
+        <HelpTOCNode Title="USE_DEFAULT Field" Url="html/908762e6-64e7-8755-4ee2-c6b466ebef94.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8b3cffd8-d75c-4260-9afa-9535085961de" Title="ColumnProperty Methods" Url="html/f90bccf5-61d0-08b7-6a74-072ae5e62776.htm">
+        <HelpTOCNode Title="Read Method " Url="html/101f6c80-caf8-8337-3f45-39716ba3fb2a.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="6b4560f9-1b70-4337-b033-087cf0dac1bc" Title="ColumnProperty Properties" Url="html/6c7f9d6e-b97c-efb0-612b-3895671647a9.htm">
+        <HelpTOCNode Title="IsGenerated Property " Url="html/47ee82d2-0502-b79e-ddad-1ed6a4c981de.htm" />
+        <HelpTOCNode Title="IsIgnore Property " Url="html/c86336ec-05bc-b646-19c7-739ec02e50fd.htm" />
+        <HelpTOCNode Title="IsKey Property " Url="html/a7678190-0569-1546-0b59-1bff30be5f0d.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/3c067d9d-387d-1941-a689-2296a0ea1cee.htm" />
+        <HelpTOCNode Title="TimeStampFormat Property " Url="html/dcc75f1e-ce1e-7bd2-d644-555a8ea385bf.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="1cd76ca6-051f-4b41-9772-fa9b07cdec6a" Title="DBExecution Class" Url="html/e6471613-2e2c-491e-beba-cb9f5374a2d0.htm">
+    <HelpTOCNode Id="5a68e509-e6b6-433d-bee7-e3670ea8e88a" Title="DBExecution Class" Url="html/e6471613-2e2c-491e-beba-cb9f5374a2d0.htm">
       <HelpTOCNode Title="DBExecution Members" Url="html/acd21d2a-ca79-4fc8-d9a2-b205161fafd0.htm" />
-      <HelpTOCNode Id="064702fe-e73c-4f12-8200-593d225c69c4" Title="DBExecution Constructor " Url="html/dca63868-137a-edc1-44fd-761992a7156c.htm">
+      <HelpTOCNode Id="1c707858-7031-422c-94c0-2915097d4aa0" Title="DBExecution Constructor " Url="html/dca63868-137a-edc1-44fd-761992a7156c.htm">
         <HelpTOCNode Title="DBExecution Constructor (String)" Url="html/f3258f8b-1ca9-6905-7077-a171463b032f.htm" />
         <HelpTOCNode Title="DBExecution Constructor (String, String)" Url="html/89acd48d-1bf7-8c6f-104e-23da3a7f5688.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="1bb11b76-e342-4ef7-ae45-aad4d5b5dd36" Title="DBExecution Methods" Url="html/c3c91c47-d0c4-3bd5-c320-d37cff42bf60.htm">
-        <HelpTOCNode Id="599ee057-eea5-405b-9ece-0477d4d3dfa0" Title="addFilter Method " Url="html/70c9e74e-2094-7118-3e0e-dcec8e5766f2.htm">
+      <HelpTOCNode Id="0f82bf9d-626f-4ef1-bce9-21c5031cb703" Title="DBExecution Methods" Url="html/c3c91c47-d0c4-3bd5-c320-d37cff42bf60.htm">
+        <HelpTOCNode Id="532297e7-3c93-4209-88b0-8be67c5a6928" Title="addFilter Method " Url="html/70c9e74e-2094-7118-3e0e-dcec8e5766f2.htm">
           <HelpTOCNode Title="addFilter Method (Dictionary(String, Object))" Url="html/7702fa8d-7b70-f6cc-19e6-23610fdf5a50.htm" />
           <HelpTOCNode Title="addFilter Method (Dictionary(String, String))" Url="html/a81d72d9-6ea9-0260-a46f-aa6fc67eebfb.htm" />
           <HelpTOCNode Title="addFilter Method (DBExecutionParameter)" Url="html/7d2b8c33-14dd-ebd1-4f92-bf78a2a20826.htm" />
@@ -30,22 +40,22 @@
         <HelpTOCNode Title="createTable Method " Url="html/9ddd7331-fad4-8f56-6866-d6b66500ac18.htm" />
         <HelpTOCNode Title="Dispose Method " Url="html/67680e10-753f-f75f-6cad-db014acc38a0.htm" />
         <HelpTOCNode Title="endTransaction Method " Url="html/77c86ee3-3ca3-5877-ca91-21660162bbbe.htm" />
-        <HelpTOCNode Id="1db5f43d-08b6-469d-9263-77e6a99e8112" Title="executeDBFunction Method " Url="html/5e1bb5a6-6088-0849-7e26-60b8e452ad02.htm">
+        <HelpTOCNode Id="2985a98d-c460-45fe-a3ef-648dbd8b5cc9" Title="executeDBFunction Method " Url="html/5e1bb5a6-6088-0849-7e26-60b8e452ad02.htm">
           <HelpTOCNode Title="executeDBFunction Method (String)" Url="html/0e778058-a405-07df-369a-8d7306a50d48.htm" />
           <HelpTOCNode Title="executeDBFunction(T) Method (String, DBExecution.executeDbEnd(T))" Url="html/98b0d243-1640-b40d-72da-721541475b3a.htm" />
-          <HelpTOCNode Title="executeDBFunction(T) Method (String, String[])" Url="html/c142c9b9-579d-0e8d-e678-e3008847cd2b.htm" />
           <HelpTOCNode Title="executeDBFunction Method (String, String[])" Url="html/39c2215b-d4ee-a781-4075-51f2d2ca7d29.htm" />
+          <HelpTOCNode Title="executeDBFunction(T) Method (String, String[])" Url="html/c142c9b9-579d-0e8d-e678-e3008847cd2b.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="getErrorMsg Method " Url="html/05f165b8-f1e9-73a4-f638-ac4700a8fe42.htm" />
         <HelpTOCNode Title="getRowAffected Method " Url="html/3a4ae56d-cdaf-6336-c909-ba1c35274d57.htm" />
-        <HelpTOCNode Title="importTable Method " Url="html/cbf36775-a804-cae9-ff4a-9168cbe8be04.htm" />
-        <HelpTOCNode Id="b32faa76-b9b5-44f9-b894-e4f80b2722ac" Title="readItemSafe Method " Url="html/6a58bde2-17f0-15df-a60e-8c411192a270.htm">
+        <HelpTOCNode Title="importTable Method " Url="html/1a6ccf31-8e95-dd2d-97a2-1be7f9ebc6fa.htm" />
+        <HelpTOCNode Id="c476c7b2-a071-4495-b0ec-8e0a49da7d3e" Title="readItemSafe Method " Url="html/6a58bde2-17f0-15df-a60e-8c411192a270.htm">
           <HelpTOCNode Title="readItemSafe Method (DbDataReader, Int32)" Url="html/6e0d795d-51b0-7de7-4578-589012fbc578.htm" />
           <HelpTOCNode Title="readItemSafe Method (DbDataReader, String)" Url="html/b64efcf3-76de-7331-b85c-2097e0f92a01.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="sqlExecution Method " Url="html/d54d8bd2-9d2e-dbc4-c6b8-2b944b739426.htm" />
         <HelpTOCNode Title="sqlIsExist Method " Url="html/db059433-5ee2-8d26-24e2-e0714c84be57.htm" />
-        <HelpTOCNode Id="5b305693-887f-47f1-89b1-33edaa846c5e" Title="sqlRead Method " Url="html/ccd08852-89ed-6833-06eb-11c4049abfd0.htm">
+        <HelpTOCNode Id="d918aad1-f57b-45d4-9f8f-76a2107df6f8" Title="sqlRead Method " Url="html/ccd08852-89ed-6833-06eb-11c4049abfd0.htm">
           <HelpTOCNode Title="sqlRead Method (String)" Url="html/39832603-34c1-e952-3b05-a952ac6900f8.htm" />
           <HelpTOCNode Title="sqlRead Method (String, DBExecution.fetchDb, DBExecution.fetchDbEnd)" Url="html/9ba9f6cf-a7f4-99e4-1ce3-9156b0cd08af.htm" />
           <HelpTOCNode Title="sqlRead(T) Method (String, DBExecution.fetchDbItem(T), DBExecution.fetchDbEnd)" Url="html/90932965-e3b2-5af2-4897-3f95a8a7bae9.htm" />
@@ -54,7 +64,7 @@
         <HelpTOCNode Title="sqlReadScalar(T) Method " Url="html/9116c789-9b2c-ebf6-a192-3c62384d45f3.htm" />
         <HelpTOCNode Title="sqlReadToString Method " Url="html/dfc56de0-2ccc-b16e-6359-a21250c38976.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="68c5ecc2-66b0-406d-a107-3e53acb6e234" Title="DBExecution Properties" Url="html/92f95f25-04f3-83b7-9454-8f8b48d9040d.htm">
+      <HelpTOCNode Id="0ff5b247-383e-44f0-ab1e-b7140042b57e" Title="DBExecution Properties" Url="html/92f95f25-04f3-83b7-9454-8f8b48d9040d.htm">
         <HelpTOCNode Title="CommandTimeout Property " Url="html/317f4da1-2e99-cf06-221b-af60ce75a665.htm" />
         <HelpTOCNode Title="Filter Property " Url="html/cef5473a-a073-3bc8-2396-339a1a3b60f1.htm" />
       </HelpTOCNode>
@@ -63,21 +73,21 @@
     <HelpTOCNode Title="DBExecution.fetchDb Delegate" Url="html/0fa6fe8f-d32f-7792-8530-f3434d1534b9.htm" />
     <HelpTOCNode Title="DBExecution.fetchDbEnd Delegate" Url="html/0b14af75-b172-1b68-d976-1aa421b2cc7d.htm" />
     <HelpTOCNode Title="DBExecution.fetchDbItem(T) Delegate" Url="html/bd3b3d78-44ab-ce29-cc6a-ff2cc2e88c6c.htm" />
-    <HelpTOCNode Id="761db446-751c-4974-989a-2c7039ea1ae5" Title="DBExecutionParameter Class" Url="html/6aa7699e-67b1-a055-d06a-f819610c1551.htm">
+    <HelpTOCNode Id="958f571e-1b8d-49e1-b063-04ee43434def" Title="DBExecutionParameter Class" Url="html/6aa7699e-67b1-a055-d06a-f819610c1551.htm">
       <HelpTOCNode Title="DBExecutionParameter Members" Url="html/de811b9d-50ed-f2fc-bb2e-d843300b50b0.htm" />
-      <HelpTOCNode Id="7f85c484-b696-4f53-9487-b44f7d5e9bde" Title="DBExecutionParameter Constructor " Url="html/8ab497e4-6456-e298-5085-9b7f1f45080d.htm">
+      <HelpTOCNode Id="ea200103-ab91-4949-9b20-d7e9e9cb2584" Title="DBExecutionParameter Constructor " Url="html/8ab497e4-6456-e298-5085-9b7f1f45080d.htm">
         <HelpTOCNode Title="DBExecutionParameter Constructor (Boolean)" Url="html/65bcffdd-4040-96af-da0f-69cf9812c266.htm" />
         <HelpTOCNode Title="DBExecutionParameter Constructor (String, DbType)" Url="html/fe54e22f-edf5-491b-7625-7dd782d62bba.htm" />
         <HelpTOCNode Title="DBExecutionParameter Constructor (String, DbType, Object)" Url="html/8e80aeb6-8a63-19d4-4304-2d94b2450355.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="c0ba4f62-f50c-4c61-b48a-c78c23d5dd99" Title="DBExecutionParameter Fields" Url="html/2d868476-348c-2e65-b0fc-90fdfcb2d822.htm">
+      <HelpTOCNode Id="922b77ea-a88d-4f69-9887-a1da7d2a2c94" Title="DBExecutionParameter Fields" Url="html/2d868476-348c-2e65-b0fc-90fdfcb2d822.htm">
         <HelpTOCNode Title="DEFAULT_LENGTH Field" Url="html/c84a359d-68c5-556f-3cb2-9ad260b1a00f.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="7f2e226f-5572-4181-9a32-0ad862a0950d" Title="DBExecutionParameter Methods" Url="html/a47ec3b1-4e3e-4f75-b65a-a0a2bf165f02.htm">
+      <HelpTOCNode Id="851755f6-837c-452e-b02a-1aa466291375" Title="DBExecutionParameter Methods" Url="html/a47ec3b1-4e3e-4f75-b65a-a0a2bf165f02.htm">
         <HelpTOCNode Title="ResetDbType Method " Url="html/2c8ecabb-b290-a820-52e8-aefc29ce5464.htm" />
         <HelpTOCNode Title="transferData Method " Url="html/70db7f83-a415-4547-913b-39aff5de61a0.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="afcfafff-8e8a-4528-874c-40f4e61b5e75" Title="DBExecutionParameter Properties" Url="html/32325ea4-9930-1cfb-c43d-33c051e16f6e.htm">
+      <HelpTOCNode Id="f6c2e8a3-eaee-4d40-8167-95c871008540" Title="DBExecutionParameter Properties" Url="html/32325ea4-9930-1cfb-c43d-33c051e16f6e.htm">
         <HelpTOCNode Title="DbType Property " Url="html/edddec08-398f-0214-4315-32f3b569ef43.htm" />
         <HelpTOCNode Title="Direction Property " Url="html/57fac11d-1267-8eed-316f-d106b5bc7aa9.htm" />
         <HelpTOCNode Title="IsNullable Property " Url="html/ce05c772-cecb-1d6e-eae7-f03d444063b4.htm" />
@@ -89,23 +99,82 @@
         <HelpTOCNode Title="Value Property " Url="html/e1f61998-70a9-88ad-4d05-e5eb8e9d3402.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
+    <HelpTOCNode Id="c1fa60ca-9497-47c1-8d7d-208a79fcae62" Title="DBExtensions Class" Url="html/deda4e12-2e51-7e11-b335-0b35cf270c89.htm">
+      <HelpTOCNode Title="DBExtensions Members" Url="html/7fef865e-134e-7130-3e33-9b65bb3523be.htm" />
+      <HelpTOCNode Id="a93c2f5d-8d3e-4371-b300-19a4e07f83bb" Title="DBExtensions Methods" Url="html/f4b77231-6884-a3e8-ed01-2e74b8a22b7d.htm">
+        <HelpTOCNode Title="AddColumnForFixedValue Method " Url="html/fc649842-46f9-74c0-b5d2-e498abdd9d85.htm" />
+        <HelpTOCNode Id="fd760bfd-59e9-4e26-9569-77125fde0824" Title="AddColumnForTimeStamp Method " Url="html/28818fba-1ee9-2c09-6621-7a78010e3704.htm">
+          <HelpTOCNode Title="AddColumnForTimeStamp Method (DataTable, String)" Url="html/8ce67bc8-8d69-0f33-cbe3-8434a2877e74.htm" />
+          <HelpTOCNode Title="AddColumnForTimeStamp Method (DataTable, String, String)" Url="html/fd74963d-5b33-d99f-6601-c8d0ee41fb7b.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="AddPropertyForIgnore Method " Url="html/098233b2-3fb5-faaa-497b-bbd55fce7e7e.htm" />
+        <HelpTOCNode Id="afb82ed1-4b7c-491f-bd54-f5d3e4de365d" Title="AddPropertyForTimeStamp Method " Url="html/8aab36b9-a5c5-c82e-a5f6-d39be07f5df7.htm">
+          <HelpTOCNode Title="AddPropertyForTimeStamp Method (DataColumn)" Url="html/f7b236f6-6c9a-c13b-c676-b18a381fe048.htm" />
+          <HelpTOCNode Title="AddPropertyForTimeStamp Method (DataColumn, String)" Url="html/9d8c35c7-db2e-13d4-79fd-2c675a55e7a5.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="AddPropertyForUseDefault Method " Url="html/e0446e97-0137-2343-c6fb-faab94237cea.htm" />
+        <HelpTOCNode Title="GetDecimalOrDefault Method " Url="html/150c5c54-8f07-470b-dda2-fa4f61352d34.htm" />
+        <HelpTOCNode Title="GetIntegerOrDefault Method " Url="html/c15c5b45-f880-87b5-d89f-fcf780cc58fa.htm" />
+        <HelpTOCNode Title="GetStringOrDefault Method " Url="html/cbefaf68-ed14-6aa3-40b9-1afa0b5934f1.htm" />
+        <HelpTOCNode Title="RowInfos Method " Url="html/baa0a17c-6f5c-ed72-e05f-7ca3dbc9557f.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
     <HelpTOCNode Title="ProviderType Enumeration" Url="html/e30be59d-2964-71f4-26b8-64ccb5d61246.htm" />
-    <HelpTOCNode Id="f8dd9517-52ca-445f-a67d-d0dba6abdf4e" Title="ProviderUtil Class" Url="html/bcc3868b-bc14-c34f-5d44-7fc608fdaa2b.htm">
+    <HelpTOCNode Id="54cdb3eb-fdf5-412c-a58d-f0245f436eeb" Title="ProviderUtil Class" Url="html/bcc3868b-bc14-c34f-5d44-7fc608fdaa2b.htm">
       <HelpTOCNode Title="ProviderUtil Members" Url="html/7f9fb4ea-dd13-5fe0-62e8-e8ad000ac9a0.htm" />
       <HelpTOCNode Title="ProviderUtil Constructor " Url="html/968aaf37-336b-d53b-83ee-d3b7202318a4.htm" />
-      <HelpTOCNode Id="1f9c3ec1-da51-401b-9224-8597e3af4898" Title="ProviderUtil Methods" Url="html/d5b27ab4-8376-276e-a1e4-c9466147379f.htm">
+      <HelpTOCNode Id="339d2bfb-a881-4bca-892a-7dc236472f57" Title="ProviderUtil Methods" Url="html/d5b27ab4-8376-276e-a1e4-c9466147379f.htm">
         <HelpTOCNode Title="GetProvider Method " Url="html/721079d0-5028-5560-e8a9-fd3224b6099d.htm" />
         <HelpTOCNode Title="GetProviderPrefix Method " Url="html/4811cec7-d9a0-f5e2-e619-773eabf3116a.htm" />
         <HelpTOCNode Title="GetRaw Method " Url="html/62b145a2-d8c4-b3bf-ef99-d5be147fb7bb.htm" />
         <HelpTOCNode Title="toProviderType Method " Url="html/c972aaec-f779-de49-7387-0e16ee364281.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
+    <HelpTOCNode Id="e4fdbafc-3c7b-4698-ac05-bf9fb7746270" Title="RowInfo Class" Url="html/d9288e36-6dff-8353-6711-a0fae8ae4d64.htm">
+      <HelpTOCNode Title="RowInfo Members" Url="html/4505dc66-48c6-e6d7-10e5-0e77069c3cab.htm" />
+      <HelpTOCNode Id="13394fbd-96ae-4790-8ecf-5a74daf5f8b1" Title="RowInfo Constructor " Url="html/e3a4d1ea-fb92-4b2e-5416-4bf5a5d287ff.htm">
+        <HelpTOCNode Title="RowInfo Constructor (RowInfo)" Url="html/1fc6de9c-68c0-e976-d415-4bdad7a2400b.htm" />
+        <HelpTOCNode Title="RowInfo Constructor (DataRow, Int32)" Url="html/33fda9c8-b7dd-a758-0af6-61df2fdfec11.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3fd9bd19-f7ac-41a3-ad26-1853338e302e" Title="RowInfo Methods" Url="html/efd517f7-8487-5cd8-30dd-35f5cd373ccc.htm">
+        <HelpTOCNode Id="e4447ec4-8d63-4c31-aacb-56689c67e2e6" Title="Insert Method " Url="html/157e33a5-3ae4-5e0b-eb1f-65b68e148f2b.htm">
+          <HelpTOCNode Title="Insert Method (String)" Url="html/9c62d722-4134-ce99-3157-15242365fa56.htm" />
+          <HelpTOCNode Title="Insert Method (DBExecution)" Url="html/ccd431a5-3678-8f43-a494-07384963cfc4.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="Read Method " Url="html/f11d84e5-63a7-6ac2-5627-165961959bfc.htm" />
+        <HelpTOCNode Id="5b49c268-6d4f-4e5f-9d34-309910e767ac" Title="Save Method " Url="html/7897a714-8a20-c52a-373e-ae767279f532.htm">
+          <HelpTOCNode Title="Save Method (String)" Url="html/c3db3e25-85d2-2337-07e2-bccba61bcc6f.htm" />
+          <HelpTOCNode Title="Save Method (DBExecution)" Url="html/582605e8-f292-0ac8-4c78-4a143eb280fd.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="87d6d7e8-1dcd-4c5c-9891-ff10fa34810d" Title="Update Method " Url="html/86be798f-abe2-cb99-134f-07b14ec6ed82.htm">
+          <HelpTOCNode Title="Update Method (String)" Url="html/b53768f2-e84e-8b98-4db1-04ed5bb3b845.htm" />
+          <HelpTOCNode Title="Update Method (DBExecution)" Url="html/ceeaf525-b378-7b5f-02e6-8973cfd772c5.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="29e083d8-92c6-4476-ab9a-d057353b69fd" Title="RowInfo Properties" Url="html/127d2dd1-d3d5-1f44-6d2d-3b20ef547aa0.htm">
+        <HelpTOCNode Title="ColumnProperties Property " Url="html/c39d9558-a949-0a3a-a769-f1449c395c02.htm" />
+        <HelpTOCNode Title="Index Property " Url="html/bc7d353c-6eee-6401-3025-4309208eabd8.htm" />
+        <HelpTOCNode Title="IsValid Property " Url="html/46fd337e-86e1-7ffb-2375-4f6eaa8ed9cc.htm" />
+        <HelpTOCNode Title="Messages Property " Url="html/95c320b7-5f32-ad96-f1ca-853b136b8882.htm" />
+        <HelpTOCNode Title="RowValues Property " Url="html/f73979ca-160d-ec82-a435-9d23233973ec.htm" />
+        <HelpTOCNode Title="TableName Property " Url="html/09fc2470-22b8-44e0-b309-cee7cc3f18a9.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="42a00903-5de0-484a-9cd3-bf1d525a46f5" Title="RowInfoValidator Class" Url="html/ffceb4a4-7996-2a0b-5f0a-bb8b28e417cd.htm">
+      <HelpTOCNode Title="RowInfoValidator Members" Url="html/516512b6-bdd6-8ca8-4455-77d2aae7c19e.htm" />
+      <HelpTOCNode Title="RowInfoValidator Constructor " Url="html/04194681-e45e-151a-a22a-bedf1c723a93.htm" />
+      <HelpTOCNode Id="230b5dc4-84e9-401f-975c-8bee3be150b3" Title="RowInfoValidator Methods" Url="html/e1a9f976-6e3e-fb90-01f8-50daffa13b27.htm">
+        <HelpTOCNode Title="SetUp Method " Url="html/11fc29e8-5ee9-e06d-9218-f27522a50131.htm" />
+        <HelpTOCNode Title="TearDown Method " Url="html/5c90980f-4f61-abe9-fb09-22bcac487561.htm" />
+        <HelpTOCNode Title="Validate Method " Url="html/d431406a-7c5a-e89e-adc7-166144474fc1.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="ea3806f8-9a0f-46b6-b5e8-bd56bed5316d" Title="DataBaseExecutors.Adapter Namespace" Url="html/c534b5be-e20c-822e-5688-7b4a5fa24b4c.htm">
-    <HelpTOCNode Id="8efbc155-7bfd-42cb-b06b-538f72a09134" Title="AbsDBParameterAdapter Class" Url="html/6f3d9636-cc0d-7694-f0df-4090b27beb67.htm">
+  <HelpTOCNode Id="0ddf0845-07fd-45d8-a8ab-84abb9940ec5" Title="DataBaseExecutors.Adapter Namespace" Url="html/c534b5be-e20c-822e-5688-7b4a5fa24b4c.htm">
+    <HelpTOCNode Id="13162031-b29d-4558-b39a-9da1a825acdb" Title="AbsDBParameterAdapter Class" Url="html/6f3d9636-cc0d-7694-f0df-4090b27beb67.htm">
       <HelpTOCNode Title="AbsDBParameterAdapter Members" Url="html/78310bda-60b7-8e68-b422-35f19944e792.htm" />
       <HelpTOCNode Title="AbsDBParameterAdapter Constructor " Url="html/54b86535-0660-75e6-5ed6-6683c4591227.htm" />
-      <HelpTOCNode Id="da5b01e6-6061-4ef6-aec6-467b60ace79e" Title="AbsDBParameterAdapter Methods" Url="html/21b7de97-0a38-aa9b-701c-60e289378ee2.htm">
+      <HelpTOCNode Id="c1152724-4a22-45c3-b23c-0c0cddcb3631" Title="AbsDBParameterAdapter Methods" Url="html/21b7de97-0a38-aa9b-701c-60e289378ee2.htm">
         <HelpTOCNode Title="convertSqlPlaceFolder Method " Url="html/8e4a09d0-0e2c-cc96-af41-11dbf46773f8.htm" />
         <HelpTOCNode Title="GetDefaultColumnType Method " Url="html/952f8055-1377-be1e-3305-f2bfb9afc1e6.htm" />
         <HelpTOCNode Title="getProperty Method " Url="html/a88de700-d4d2-0948-5de1-826972eb6741.htm" />
@@ -114,42 +183,42 @@
         <HelpTOCNode Title="setProperty Method " Url="html/b85d30e6-e9c3-24f6-f1ec-a203cde50410.htm" />
         <HelpTOCNode Title="SetValue Method " Url="html/e99ccb71-3c87-ecd5-c11b-05edd18a5504.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="7a7b1389-08fa-465a-9c67-d1276042dbe5" Title="AbsDBParameterAdapter Properties" Url="html/b3e07049-1979-0d3a-d4d1-ef4434292c93.htm">
+      <HelpTOCNode Id="c4e8d88e-69b9-4ae5-9dc9-861bbb5f01d4" Title="AbsDBParameterAdapter Properties" Url="html/b3e07049-1979-0d3a-d4d1-ef4434292c93.htm">
         <HelpTOCNode Title="DBPlaceHolder Property " Url="html/7d1b5ac6-75c3-b217-33af-afe24b9252a1.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7a5d9c17-7eed-4636-8a9d-6547957f0d14" Title="OracleParameterAdapter Class" Url="html/caeb3f75-32bd-6c2f-3154-94ee11d0e31d.htm">
+    <HelpTOCNode Id="775be17d-0f03-4de8-a3fa-2aafaf593da5" Title="OracleParameterAdapter Class" Url="html/caeb3f75-32bd-6c2f-3154-94ee11d0e31d.htm">
       <HelpTOCNode Title="OracleParameterAdapter Members" Url="html/2dc049f2-ffc6-0084-9929-5718ae56f3aa.htm" />
       <HelpTOCNode Title="OracleParameterAdapter Constructor " Url="html/69efd582-edd7-9376-5daf-d5084cd80a69.htm" />
-      <HelpTOCNode Id="4a0843f0-3430-4337-88fc-895404b58919" Title="OracleParameterAdapter Methods" Url="html/124ebe62-9513-76ac-9886-bfa8c983437d.htm">
+      <HelpTOCNode Id="968c97f0-4a63-46c2-a251-8120f52e4180" Title="OracleParameterAdapter Methods" Url="html/124ebe62-9513-76ac-9886-bfa8c983437d.htm">
         <HelpTOCNode Title="escapeOracleMsg Method " Url="html/895bc092-8fd4-209e-af30-faeb6bdc910e.htm" />
         <HelpTOCNode Title="GetDefaultColumnType Method " Url="html/fe6d6181-140e-71e9-f69f-ce55071e25c8.htm" />
         <HelpTOCNode Title="GetResult Method " Url="html/fbd3da3e-9ddc-5abb-63a6-2ad28d611744.htm" />
         <HelpTOCNode Title="SetDbType Method " Url="html/7056d35b-00cf-6441-290b-f59223cbb1cf.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="64674e3a-9553-4a06-a39d-3e6e36db071c" Title="OracleParameterAdapter Properties" Url="html/eac0ab8c-6d57-3bd7-0438-3572ad34548e.htm">
+      <HelpTOCNode Id="b8b9526d-e2f0-43f7-90e0-319a5c27082c" Title="OracleParameterAdapter Properties" Url="html/eac0ab8c-6d57-3bd7-0438-3572ad34548e.htm">
         <HelpTOCNode Title="DBPlaceHolder Property " Url="html/c6d91161-c91f-5399-f6f3-414a5e0569af.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7a6f4473-352e-4b06-b0af-e2f14785ebfe" Title="SqlParameterAdapter Class" Url="html/9f39dade-781b-d597-c101-1bd78c8b7ef9.htm">
+    <HelpTOCNode Id="8e55c48c-cf32-44e4-b681-1757569a4740" Title="SqlParameterAdapter Class" Url="html/9f39dade-781b-d597-c101-1bd78c8b7ef9.htm">
       <HelpTOCNode Title="SqlParameterAdapter Members" Url="html/63710ceb-050f-958d-016d-962fc5930f59.htm" />
       <HelpTOCNode Title="SqlParameterAdapter Constructor " Url="html/b20fbd38-867e-6b08-ab77-384cee26f778.htm" />
       <HelpTOCNode Title="SqlParameterAdapter Methods" Url="html/f68a1ebf-5a51-c743-20f0-a6bc4dec44e0.htm" />
-      <HelpTOCNode Id="7a5dc740-7b7f-42da-accf-ecccf2b7a4eb" Title="SqlParameterAdapter Properties" Url="html/c477509f-893b-419a-2066-5908e0905152.htm">
+      <HelpTOCNode Id="90d0cd7b-a3b9-41dd-ba33-0a1d999bd4e7" Title="SqlParameterAdapter Properties" Url="html/c477509f-893b-419a-2066-5908e0905152.htm">
         <HelpTOCNode Title="DBPlaceHolder Property " Url="html/8b3f6fdc-8cd8-d689-4b64-27df9061024a.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="f3c3f021-745d-4421-9a51-0a6cb4bc4b5d" Title="DataBaseExecutors.Aggregation Namespace" Url="html/293a9a83-2ab9-f8e1-0458-41cd2da3fa38.htm">
-    <HelpTOCNode Id="9f1668e1-23ee-4f4e-9b62-409e5e143c7c" Title="AbsAggregatable Class" Url="html/838dd097-6a6a-4b56-ed97-b80426d7f2b3.htm">
+  <HelpTOCNode Id="66e6e670-8869-42d8-a97d-fa6586b8375a" Title="DataBaseExecutors.Aggregation Namespace" Url="html/293a9a83-2ab9-f8e1-0458-41cd2da3fa38.htm">
+    <HelpTOCNode Id="7c5ed849-d99c-4e0e-a19e-8f092718e517" Title="AbsAggregatable Class" Url="html/838dd097-6a6a-4b56-ed97-b80426d7f2b3.htm">
       <HelpTOCNode Title="AbsAggregatable Members" Url="html/d50b316b-1c54-8d94-ebb1-dfe851922ef4.htm" />
       <HelpTOCNode Title="AbsAggregatable Constructor " Url="html/2bcebae4-4f1c-1ac1-4af8-57d482a76934.htm" />
-      <HelpTOCNode Id="6a9ccd89-a73e-45ec-aaff-9f875e7d0544" Title="AbsAggregatable Fields" Url="html/3db7561b-ca83-23df-c2e5-d22707eb2c2a.htm">
+      <HelpTOCNode Id="bd452d6b-f7b6-4df9-b431-828ff2fba46f" Title="AbsAggregatable Fields" Url="html/3db7561b-ca83-23df-c2e5-d22707eb2c2a.htm">
         <HelpTOCNode Title="_aggrKeys Field" Url="html/effc2afb-1839-e4d3-c400-c9ecffb33c23.htm" />
         <HelpTOCNode Title="_keySeparator Field" Url="html/0c93aad8-e8b4-29c7-5a3e-4bb86876729e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fe016f3f-71f6-4738-9b96-71f9acb52d78" Title="AbsAggregatable Methods" Url="html/c393b25d-fddb-b64c-1e5e-31545558f503.htm">
-        <HelpTOCNode Id="5056ecad-d41b-428e-90ab-caae6dfb7d86" Title="Aggregate Method " Url="html/6aa6705b-b98e-4b73-879b-18fc0dc21b65.htm">
+      <HelpTOCNode Id="7afa00d0-42ca-4d2d-b36f-3a656e052f67" Title="AbsAggregatable Methods" Url="html/c393b25d-fddb-b64c-1e5e-31545558f503.htm">
+        <HelpTOCNode Id="a59d8bcb-aa32-4f08-b584-d0b94aeedfb3" Title="Aggregate Method " Url="html/6aa6705b-b98e-4b73-879b-18fc0dc21b65.htm">
           <HelpTOCNode Title="Aggregate Method (DataTable)" Url="html/90073fd0-75f1-aab1-7b3e-3668b03a9994.htm" />
           <HelpTOCNode Title="Aggregate Method (DataTable, DataRow)" Url="html/5b22a322-ba14-eb59-3d48-a47f1daa92e7.htm" />
         </HelpTOCNode>
@@ -168,7 +237,7 @@
         <HelpTOCNode Title="makeReplacedKey Method " Url="html/ac0fd1e9-b740-6697-8746-254d9c31f654.htm" />
         <HelpTOCNode Title="toValue Method " Url="html/721777ac-ddb2-eb05-42a4-4608fe563d4e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4ffea814-c389-4c3b-a9a1-0c707f4cb5a4" Title="AbsAggregatable Properties" Url="html/6b8ec2b9-c2bd-315d-372c-f2efb7bdf158.htm">
+      <HelpTOCNode Id="d78658c9-1b9d-4390-8305-adda5328b0c5" Title="AbsAggregatable Properties" Url="html/6b8ec2b9-c2bd-315d-372c-f2efb7bdf158.htm">
         <HelpTOCNode Title="caption Property " Url="html/c7b3a2f0-0eff-8977-6cc7-df201c8fa4b7.htm" />
         <HelpTOCNode Title="childCount Property " Url="html/30fe22e6-e8d5-15ad-5e81-42c26a6bb980.htm" />
         <HelpTOCNode Title="depth Property " Url="html/bb66c6d0-3fe4-f2a8-7b22-d64fbc8f1d99.htm" />
@@ -178,23 +247,23 @@
         <HelpTOCNode Title="parentId Property " Url="html/0c9ec43c-bf12-e798-08bc-eb8ae93bb15e.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="1a585f57-f2d5-4f75-9a64-e291173be61a" Title="DataAggregator Class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm">
+    <HelpTOCNode Id="1e2af4b3-cfa0-4825-b705-f648c010ffa8" Title="DataAggregator Class" Url="html/3f5fa962-a821-f791-42e4-47bc8c86b014.htm">
       <HelpTOCNode Title="DataAggregator Members" Url="html/33b7db14-7cd0-70ec-2e9f-cc4ee221358b.htm" />
       <HelpTOCNode Title="DataAggregator Constructor " Url="html/9bc4d350-63a3-a3f0-10f5-b55e96cd2d66.htm" />
-      <HelpTOCNode Id="bcdb78b1-b123-47a4-aec2-d2bdae97f8a1" Title="DataAggregator Methods" Url="html/5c63afa9-f4c2-8ae0-414d-ecdb9f7af26a.htm">
+      <HelpTOCNode Id="5d001991-8353-4f1d-84f6-319fa6f34d01" Title="DataAggregator Methods" Url="html/5c63afa9-f4c2-8ae0-414d-ecdb9f7af26a.htm">
         <HelpTOCNode Title="Aggregate(T) Method " Url="html/d2aba1cc-93da-c05f-891a-4d1f5ba2a843.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="8d91315e-98ed-4eef-8646-c4da36054ee5" Title="DataAggregator Properties" Url="html/cac9fed8-05db-ca6c-c8a7-7cc2128e100c.htm">
+      <HelpTOCNode Id="41afb229-9077-4503-b6c0-11c697362269" Title="DataAggregator Properties" Url="html/cac9fed8-05db-ca6c-c8a7-7cc2128e100c.htm">
         <HelpTOCNode Title="ConnectionName Property " Url="html/fc73de3c-a4b5-8619-b571-1f77bd023917.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="2c33c070-0b98-426f-a5b6-a61c20f74df1" Title="DataBaseExecutors.Entity Namespace" Url="html/4be53539-8bb2-5cbd-ca75-72b8850b2245.htm">
-    <HelpTOCNode Id="c62425ad-9879-44c0-aa40-3c87db464b26" Title="DBColumnAttribute Class" Url="html/a8bc913e-cb79-5790-e1a9-30353331ddf5.htm">
+  <HelpTOCNode Id="53ef1eed-565f-4690-a209-a75b4f25d5ca" Title="DataBaseExecutors.Entity Namespace" Url="html/4be53539-8bb2-5cbd-ca75-72b8850b2245.htm">
+    <HelpTOCNode Id="0b4d60eb-df16-421e-b1dd-4c401d3d69e8" Title="DBColumnAttribute Class" Url="html/a8bc913e-cb79-5790-e1a9-30353331ddf5.htm">
       <HelpTOCNode Title="DBColumnAttribute Members" Url="html/18bbf873-c6c6-3774-6353-f3359427a30f.htm" />
       <HelpTOCNode Title="DBColumnAttribute Constructor " Url="html/26e81197-4900-a19a-64ae-03ef8da5643a.htm" />
       <HelpTOCNode Title="DBColumnAttribute Methods" Url="html/12117df1-5cb3-f9f7-302d-914921f0918e.htm" />
-      <HelpTOCNode Id="3f7ae7f2-221b-4463-b275-80c53688c3ea" Title="DBColumnAttribute Properties" Url="html/fbdbe72f-b468-0dd6-d15a-b26028bf0344.htm">
+      <HelpTOCNode Id="17fd8ec3-3858-42de-87de-547d87e550d0" Title="DBColumnAttribute Properties" Url="html/fbdbe72f-b468-0dd6-d15a-b26028bf0344.htm">
         <HelpTOCNode Title="Format Property " Url="html/377f2fd1-ab25-8aba-5a42-6f8e40ddea65.htm" />
         <HelpTOCNode Title="IsDbGenerate Property " Url="html/02a9e513-3b7e-a568-5c81-0773aaf7fcc0.htm" />
         <HelpTOCNode Title="IsKey Property " Url="html/d760150f-87e9-7985-c7ec-c3a26264e9d6.htm" />
@@ -202,40 +271,40 @@
         <HelpTOCNode Title="Order Property " Url="html/0ba239fb-822d-f930-904a-7f82e113d9ad.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b01a7fd4-7cf7-4e33-a1aa-5594c1ee196a" Title="DBEntity Class" Url="html/4c7052cc-2d7f-c789-3701-a12b316103c5.htm">
+    <HelpTOCNode Id="24bdfeb7-35d3-4e90-a007-6934a3db5aa5" Title="DBEntity Class" Url="html/4c7052cc-2d7f-c789-3701-a12b316103c5.htm">
       <HelpTOCNode Title="DBEntity Members" Url="html/57fa233b-08ec-73a9-f7f4-cde8e344f7a6.htm" />
       <HelpTOCNode Title="DBEntity Constructor " Url="html/ae623bd7-c804-2b5d-73c4-ddb05d9eb243.htm" />
-      <HelpTOCNode Id="120c3c3d-fd34-4550-96db-ada1342f62ec" Title="DBEntity Methods" Url="html/d03d49dc-b57c-bdac-5cd9-a071dd63e6a6.htm">
-        <HelpTOCNode Id="cb514be1-7d84-4499-bc3e-c809d53dc68f" Title="createExecute Method " Url="html/bcb13452-9923-4653-4126-4cebd6e54c39.htm">
+      <HelpTOCNode Id="4c9fabeb-a833-4d9c-b016-f5fe10133a67" Title="DBEntity Methods" Url="html/d03d49dc-b57c-bdac-5cd9-a071dd63e6a6.htm">
+        <HelpTOCNode Id="784558b1-8762-4a4b-97b5-18d51a642894" Title="createExecute Method " Url="html/bcb13452-9923-4653-4126-4cebd6e54c39.htm">
           <HelpTOCNode Title="createExecute Method (IDBEntity, DBExecution, Boolean)" Url="html/be5c62e8-bb75-557b-85ff-6b2f4d8116cf.htm" />
           <HelpTOCNode Title="createExecute Method (IDBEntity, String, Boolean)" Url="html/3261c462-6ebd-a554-5ec7-df0f19d03c4f.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="GetDBProperties Method " Url="html/99264ace-9bb3-e7bf-c5ce-399111a5d380.htm" />
         <HelpTOCNode Title="GetSource Method " Url="html/eba8a949-539b-97e8-6689-52671ea013ae.htm" />
-        <HelpTOCNode Id="ea5da108-d546-4349-a2f5-a12ec1aa7809" Title="Read Method " Url="html/0a48b7da-d13c-fb58-0b1a-f6eed6a73f66.htm">
+        <HelpTOCNode Id="3c2db44e-a789-4c3a-ba7b-3c4f6496932c" Title="Read Method " Url="html/0a48b7da-d13c-fb58-0b1a-f6eed6a73f66.htm">
           <HelpTOCNode Title="Read(T) Method (String)" Url="html/f82e4aa5-2d17-567a-ab1c-1b5167b68330.htm" />
           <HelpTOCNode Title="Read(T) Method (String, DBExecution)" Url="html/831a7dc8-4d0b-a5f3-40e1-f64014badd03.htm" />
           <HelpTOCNode Title="Read(T) Method (String, String)" Url="html/1ccddf90-7593-3181-80cb-fab6954b86c2.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="f4d1d698-c1c9-4497-a962-67b6380bcc54" Title="DBEntityExtension Class" Url="html/cb0f6e42-3ad3-080d-da52-b5cd1a3659d7.htm">
+    <HelpTOCNode Id="6ee1af5f-547e-4af9-a7c9-b677d10be79f" Title="DBEntityExtension Class" Url="html/cb0f6e42-3ad3-080d-da52-b5cd1a3659d7.htm">
       <HelpTOCNode Title="DBEntityExtension Members" Url="html/223ab156-0ed0-6cdd-3a2e-4d14b5193038.htm" />
-      <HelpTOCNode Id="0728e1e7-21d9-4c62-8fc7-36bac3b6f4be" Title="DBEntityExtension Methods" Url="html/2b7c9000-a1e9-af8b-3596-fe330a128262.htm">
+      <HelpTOCNode Id="2673d47b-26ac-412b-80d1-249b754dc868" Title="DBEntityExtension Methods" Url="html/2b7c9000-a1e9-af8b-3596-fe330a128262.htm">
         <HelpTOCNode Title="Delete Method " Url="html/7fd28a44-59a3-45cf-b459-41323551c484.htm" />
         <HelpTOCNode Title="ReadByKey(T) Method " Url="html/f5295abe-d7d5-3ea4-3dd4-d43868b3ce11.htm" />
-        <HelpTOCNode Id="87807058-f2ff-4b5d-91ef-64d1cf05b0f3" Title="Save Method " Url="html/67ff6692-145e-3046-3821-e66636f9d494.htm">
+        <HelpTOCNode Id="bbe0bed5-3651-4be9-9162-319ba8bd19ef" Title="Save Method " Url="html/67ff6692-145e-3046-3821-e66636f9d494.htm">
           <HelpTOCNode Title="Save Method (IDBEntity, DBExecution)" Url="html/93090c2b-b104-4292-5cf4-9166388827ee.htm" />
           <HelpTOCNode Title="Save Method (IDBEntity, String)" Url="html/4e8aae39-171b-6f4b-636c-8a1d1c8ce558.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="Source Method " Url="html/949fd455-4e0b-f1bf-11c6-c1428d84b516.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="10327c50-6263-4070-9080-1ab2cd4ed4b1" Title="DBEntityProperty Class" Url="html/531872fd-01bb-f913-795a-a1f6ad7ebcfe.htm">
+    <HelpTOCNode Id="1d5ef738-5214-4dd4-a89e-7b3dce378878" Title="DBEntityProperty Class" Url="html/531872fd-01bb-f913-795a-a1f6ad7ebcfe.htm">
       <HelpTOCNode Title="DBEntityProperty Members" Url="html/6ce51490-0e26-76fe-b8dd-22909c6be2b9.htm" />
       <HelpTOCNode Title="DBEntityProperty Constructor " Url="html/54e1327d-d3a3-ab26-9f07-ecca5d5988f8.htm" />
       <HelpTOCNode Title="DBEntityProperty Methods" Url="html/a6f4ff4e-c190-ccfd-d369-c164dec23ac7.htm" />
-      <HelpTOCNode Id="1a633ad8-9c1c-4625-8873-f89a3f1f53d7" Title="DBEntityProperty Properties" Url="html/249e10fe-9d58-ce04-c317-e3d136144916.htm">
+      <HelpTOCNode Id="86140122-beb4-4740-81bf-f684d843229d" Title="DBEntityProperty Properties" Url="html/249e10fe-9d58-ce04-c317-e3d136144916.htm">
         <HelpTOCNode Title="Column Property " Url="html/be26793d-c190-0013-942a-7b2c0e0d0717.htm" />
         <HelpTOCNode Title="ColumnName Property " Url="html/21df2957-01b5-0ce0-cd32-d19cfca6a7d6.htm" />
         <HelpTOCNode Title="Name Property " Url="html/56c5968e-0616-4163-f7eb-24d3b7ed0776.htm" />
@@ -245,11 +314,11 @@
         <HelpTOCNode Title="Value Property " Url="html/86cf2bc1-3640-858f-aead-7fc53eff7781.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="aa8b15f8-ab53-46b3-b8c6-9c01ddfdf1da" Title="DBSourceAttribute Class" Url="html/ce64b472-920b-916b-92cc-3413d5bd2305.htm">
+    <HelpTOCNode Id="b653cf32-d591-4609-97fe-87157b2143a1" Title="DBSourceAttribute Class" Url="html/ce64b472-920b-916b-92cc-3413d5bd2305.htm">
       <HelpTOCNode Title="DBSourceAttribute Members" Url="html/6c5a645e-de98-bf58-b620-74d3d0cde29e.htm" />
       <HelpTOCNode Title="DBSourceAttribute Constructor " Url="html/d38d0d35-0fc7-fc2c-8aa1-1f79cf0f5577.htm" />
       <HelpTOCNode Title="DBSourceAttribute Methods" Url="html/859f39dc-3e40-7c37-5449-ebf4919a2aaf.htm" />
-      <HelpTOCNode Id="294a004b-14b4-444b-bba4-cc3886006a2c" Title="DBSourceAttribute Properties" Url="html/56e0b2c0-6772-2080-bf7c-c2c34afe448e.htm">
+      <HelpTOCNode Id="5cc4d748-dbfe-404c-9f19-98c136c3580d" Title="DBSourceAttribute Properties" Url="html/56e0b2c0-6772-2080-bf7c-c2c34afe448e.htm">
         <HelpTOCNode Title="Table Property " Url="html/68ba86be-963d-688c-2845-7420060c1dec.htm" />
         <HelpTOCNode Title="View Property " Url="html/3c22d32e-c3ba-c028-efe0-63ede39bfe0f.htm" />
       </HelpTOCNode>
