@@ -867,27 +867,38 @@ Namespace DataBaseExecutors
         ''' </summary>
         ''' Return error / or messaged rows
         ''' <param name="table"></param>
-        ''' <param name="validator">validator for each row. if set RowInfo.IsValid=False,then row is ignored.</param>
+        ''' <param name="validator"></param>
         ''' <returns></returns>
         ''' <remarks></remarks>
-        Public Function importTable(ByVal table As DataTable, Optional ByVal validator As RowInfo.validateRowInfo = Nothing) As List(Of RowInfo)
+        Public Function importTable(ByVal table As DataTable, Optional ByVal validator As RowInfoValidator = Nothing) As List(Of RowInfo)
 
-            Dim log As New List(Of RowInfo)
-            Dim rowInfos As List(Of RowInfo) = table.RowInfos
+            Dim log As List(Of RowInfo) = Nothing
+            Dim target As DataTable = table
+            If validator IsNot Nothing Then log = validator.SetUp(Me, target)
+
+            'check log is added in setup process
+            If log IsNot Nothing AndAlso log.Count > 0 Then
+                Return log
+            Else
+                log = New List(Of RowInfo)
+            End If
+
+            Dim rowInfos As List(Of RowInfo) = target.RowInfos
 
             For i As Integer = 1 To rowInfos.Count
                 Dim r As RowInfo = rowInfos(i - 1)
-                If validator IsNot Nothing Then
-                    r = validator(r)
+                If validator IsNot Nothing Then r = validator.Validate(r)
+
+                If Not r.IsValid Then 'validation error
+                    log.Add(r)
+                Else
+                    Dim result As Boolean = r.Save(Me)
+                    If Not result Then log.Add(r)
                 End If
 
-                Dim result As Boolean = r.Save(Me)
-                If Not result Then 'error occued when execute
-                    log.Add(r)
-                ElseIf Not r.IsValid Then 'validation error
-                    log.Add(r)
-                End If
             Next
+
+            If validator IsNot Nothing Then log = validator.TearDown(Me, log)
 
             Return log
 
