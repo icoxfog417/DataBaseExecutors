@@ -7,14 +7,6 @@ Namespace DataBaseExecutors
     ''' <remarks></remarks>
     Public Class RowInfo
 
-        ''' <summary>
-        ''' Delegate to validate or convert value
-        ''' </summary>
-        ''' <param name="rowInfo"></param>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
-        Public Delegate Function validateRowInfo(ByVal rowInfo As RowInfo) As RowInfo
-
         Public Property TableName As String = ""
         Public Property Index As Integer = 0
         Public Property IsValid As Boolean = True
@@ -28,11 +20,19 @@ Namespace DataBaseExecutors
         Public Property RowValues As New Dictionary(Of String, Object)
         Public Property Messages As New List(Of String)
 
+        Private Sub New()
+        End Sub
+
         ''' <summary>
         ''' Constructor is private
         ''' </summary>
         ''' <remarks></remarks>
-        Private Sub New()
+        Public Sub New(row As DataRow, Optional ByVal index As Integer = 0)
+            Me.TableName = row.Table.TableName
+            Me.Index = index
+            Me._columnProperties = ColumnProperty.Read(row.Table)
+            Me.readRow(row)
+
         End Sub
 
         ''' <summary>
@@ -64,19 +64,7 @@ Namespace DataBaseExecutors
                 ri.TableName = table.TableName
                 ri.Index = count
                 ri._columnProperties = colProps
-
-                For Each c As ColumnProperty In colProps
-                    Dim value As Object = row(c.Name)
-                    If c.TimeStampFormat IsNot Nothing Then 'If column is timestamp 
-                        If c.TimeStampFormat = String.Empty Then
-                            value = DateTime.Now
-                        Else
-                            value = DateTime.Now.ToString(c.TimeStampFormat)
-                        End If
-                    End If
-
-                    ri.RowValues.Add(c.Name, value)
-                Next
+                ri.readRow(row)
 
                 rows.Add(ri)
                 count += 1
@@ -85,6 +73,21 @@ Namespace DataBaseExecutors
             Return rows
 
         End Function
+
+        Private Sub readRow(ByVal row As DataRow)
+            For Each c As ColumnProperty In _columnProperties
+                Dim value As Object = row(c.Name)
+                If c.TimeStampFormat IsNot Nothing Then 'If column is timestamp 
+                    If c.TimeStampFormat = String.Empty Then
+                        value = DateTime.Now
+                    Else
+                        value = DateTime.Now.ToString(c.TimeStampFormat)
+                    End If
+                End If
+
+                RowValues.Add(c.Name, value)
+            Next
+        End Sub
 
         ''' <summary>Insert RowInfo</summary>
         ''' <param name="conName"></param>
@@ -233,5 +236,44 @@ Namespace DataBaseExecutors
 
     End Class
 
+    ''' <summary>
+    ''' The Class for delegate validation and convertion of value
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Class RowInfoValidator
+
+        ''' <summary>
+        ''' process before import table.
+        ''' </summary>
+        ''' <param name="db"></param>
+        ''' <param name="table"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Overridable Function SetUp(ByRef db As DBExecution, ByRef table As DataTable) As List(Of RowInfo)
+            Return Nothing
+        End Function
+
+        ''' <summary>
+        ''' validator for each row. if set RowInfo.IsValid=False,then row is ignored.
+        ''' </summary>
+        ''' <param name="rowInfo"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Overridable Function Validate(ByVal rowInfo As RowInfo) As RowInfo
+            Return rowInfo
+        End Function
+
+        ''' <summary>
+        ''' process after import table
+        ''' </summary>
+        ''' <param name="db"></param>
+        ''' <param name="log"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Overridable Function TearDown(ByRef db As DBExecution, ByVal log As List(Of RowInfo)) As List(Of RowInfo)
+            Return log
+        End Function
+
+    End Class
 
 End Namespace

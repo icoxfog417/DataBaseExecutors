@@ -189,12 +189,14 @@ Public Class DBExecutionTest
 
         Dim db = New DBExecution(ConnectionName)
         Dim table As DataTable = TestData.toDataTable(Nothing)
-        Dim msg As String = "Quantity is Checked"
+        Dim validator As New TestRowValidator
+        validator.CheckMessage = "the row is checked!"
+        validator.RowOffset = 3
 
         'prepare test data
         Dim o1 As SalesOrder = TestData.createOrder()
         o1.MaterialCode = "MaterialAAA"
-        o1.Quantity = 900
+        o1.Quantity = 900 'validation error
 
         Dim o2 As SalesOrder = TestData.createOrder()
         o2.MaterialCode = "MaterialBBB"
@@ -205,27 +207,18 @@ Public Class DBExecutionTest
 
         TestData.importList(table, New List(Of SalesOrder) From {o1, o2})
 
-        'execute
-        Dim logs As List(Of RowInfo) = db.importTable(table, Function(rowInfo As RowInfo) As RowInfo
-                                                                 Dim newInfo As New RowInfo(rowInfo)
+        'Test Setup
+        Dim logs As List(Of RowInfo) = db.importTable(table, validator)
+        Assert.AreEqual(-1, logs.First.Index)
 
-                                                                 'Validation
-                                                                 If newInfo.RowValues("Quan") > 500 Then
-                                                                     newInfo.Messages.Add("Too match quantity!!")
-                                                                     newInfo.IsValid = False
-                                                                 End If
-
-                                                                 'Convert Value
-                                                                 newInfo.RowValues("CommentText") = msg
-
-                                                                 Return newInfo
-                                                             End Function)
-
-        'confirm(1 validation error)
+        'Test Validate
+        validator.IsPrevent = False
+        logs = db.importTable(table, validator)
         Assert.AreEqual(1, logs.Count)
 
         Dim stored As DataTable = selectOrder(db, o2)
-        Assert.AreEqual(msg, stored.Rows(0)("CommentText"))
+        Assert.AreEqual(validator.CheckMessage, stored.Rows(0)("CommentText"))
+        Assert.AreEqual(validator.RowOffset, logs.First.Index)
 
         deleteOrder(db, o1)
         deleteOrder(db, o2)
@@ -257,5 +250,43 @@ Public Class DBExecutionTest
 
     End Sub
 
+    Public Class TestRowValidator
+        Inherits RowInfoValidator
+
+        Public Property RowOffset As Integer = 0
+        Public Property CheckMessage As String = ""
+        Public Property IsPrevent As Boolean = True
+
+        Public Overrides Function SetUp(ByRef db As DBExecution, ByRef table As DataTable) As List(Of RowInfo)
+            If IsPrevent Then
+                Dim dummy As New RowInfo(table.Rows(0))
+                dummy.Messages.Add("Prevented!")
+                dummy.Index = -1
+                Return New List(Of RowInfo) From {dummy}
+            End If
+            Return MyBase.SetUp(db, table)
+        End Function
+
+        Public Overrides Function Validate(rowInfo As RowInfo) As RowInfo
+            Dim newInfo As New RowInfo(rowInfo)
+
+            'Validation
+            If newInfo.RowValues("Quan") > 500 Then
+                newInfo.Messages.Add("Too match quantity!!")
+                newInfo.IsValid = False
+            End If
+
+            'Convert Value
+            newInfo.RowValues("CommentText") = CheckMessage
+
+            Return newInfo
+        End Function
+
+        Public Overrides Function TearDown(ByRef db As DBExecution, log As List(Of RowInfo)) As List(Of RowInfo)
+            log.ForEach(Sub(r) r.Index += RowOffset)
+            Return log
+        End Function
+
+    End Class
 
 End Class
