@@ -151,12 +151,21 @@ Public Class DBExecutionTest
         Dim now As DateTime = DateTime.Now
 
         'prepare test data
-        Dim o As SalesOrder = TestData.createOrder() 'will update
-        o.MaterialCode = "Material9000"
-        o.Quantity = 10
-        o.OrderDate = defaultDate
-        o.DeliverDate = defaultDate
-        o.CommentText = "Update is Executed"
+        Dim o1 As SalesOrder = TestData.createOrder() 'will insert
+        o1.MaterialCode = "Material9000"
+        o1.Quantity = 10
+        o1.OrderDate = defaultDate
+        o1.DeliverDate = defaultDate
+        o1.CommentText = "Insert is Executed"
+
+        Dim o2 As SalesOrder = TestData.createOrder() 'will update
+        o2.OrderNo = 1
+        o2.OrderDetail = 1
+        o2.MaterialCode = "Apple_Update"    '<--Apple
+        o2.Quantity = 5.8                   '<--10.5
+        o2.OrderDate = defaultDate
+        o2.DeliverDate = defaultDate
+        o2.CommentText = "Update is Executed"
 
         'set primary key
         table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
@@ -166,7 +175,7 @@ Public Class DBExecutionTest
         table.Columns("DeliverDate").AddPropertyForTimeStamp() ' as datetime
         table.Columns("CommentText").AddPropertyForIgnore() 'ignore this column
 
-        TestData.importList(table, New List(Of SalesOrder) From {o})
+        TestData.importList(table, New List(Of SalesOrder) From {o1, o2})
 
         'execute
         Dim logs As List(Of RowInfo) = db.importTable(table)
@@ -174,13 +183,21 @@ Public Class DBExecutionTest
         'confirm
         Assert.AreEqual(0, logs.Count)
 
-        Dim stored As DataTable = selectOrder(db, o)
+        Dim stored1 As DataTable = selectOrder(db, o1)  'check insert
 
-        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored.Rows(0)("OrderDate").ToString)
-        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
-        Assert.IsTrue(String.IsNullOrEmpty(stored.Rows(0)("CommentText").ToString))
+        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored1.Rows(0)("OrderDate").ToString)
+        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored1.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
+        Assert.IsTrue(String.IsNullOrEmpty(stored1.Rows(0)("CommentText").ToString))
 
-        deleteOrder(db, o)
+
+        Dim stored2 As DataTable = selectOrder(db, o2)  'check update
+
+        Assert.IsTrue("Apple_Update" = stored2.Rows(0)("Material").ToString)
+        Assert.IsTrue(now.ToString("yyyyMMdd") <= stored2.Rows(0)("OrderDate").ToString)
+        Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored2.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
+        Assert.IsTrue(String.IsNullOrEmpty(stored2.Rows(0)("CommentText").ToString))
+
+        deleteOrder(db, o1)
 
     End Sub
 
