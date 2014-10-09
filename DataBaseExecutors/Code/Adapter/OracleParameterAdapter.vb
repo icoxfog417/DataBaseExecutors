@@ -46,6 +46,10 @@ Namespace DataBaseExecutors.Adapter
                     If fromParam.Size > 8000 Then
                         setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "Clob"))
                     End If
+
+                Case Data.DbType.String, Data.DbType.StringFixedLength 'UNICODE
+                    setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "NVarchar2"))
+
                 Case Else
                     'デフォルト動作
                     MyBase.SetDbType(fromParam, toParam)
