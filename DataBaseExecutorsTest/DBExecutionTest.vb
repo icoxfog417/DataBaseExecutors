@@ -6,13 +6,13 @@ Public Class DBExecutionTest
 
     Private Const ConnectionName As String = "DefaultConnection"
 
-    <ClassInitialize()>
-    Public Shared Sub setUp(context As TestContext)
+    <TestInitialize()>
+    Public Sub setUp()
         TestData.Create(ConnectionName)
     End Sub
 
-    <ClassCleanup()>
-    Public Shared Sub TearDown()
+    <TestCleanup()>
+    Public Sub TearDown()
         TestData.Drop(ConnectionName)
     End Sub
 
@@ -149,6 +149,7 @@ Public Class DBExecutionTest
         Dim table As DataTable = TestData.toDataTable(Nothing)
         Dim defaultDate As DateTime = New DateTime(1100, 1, 1)
         Dim now As DateTime = DateTime.Now
+        Dim defaultComment As String = "Default CommentText"
 
         'prepare test data
         Dim o1 As SalesOrder = TestData.createOrder() 'will insert
@@ -158,14 +159,24 @@ Public Class DBExecutionTest
         o1.DeliverDate = defaultDate
         o1.CommentText = "Insert is Executed"
 
+
         Dim o2 As SalesOrder = TestData.createOrder() 'will update
-        o2.OrderNo = 1
+        o2.OrderNo = 99
         o2.OrderDetail = 1
-        o2.MaterialCode = "Apple_Update"    '<--Apple
-        o2.Quantity = 5.8                   '<--10.5
+        o2.MaterialCode = "Material9990"
+        o2.Quantity = 5.8
         o2.OrderDate = defaultDate
         o2.DeliverDate = defaultDate
         o2.CommentText = "Update is Executed"
+
+        'insert row for update
+        Dim insertSql = "INSERT INTO " + TestData.TableName +
+                        "(OrderNo,OrderDetail,CommentText) values (" +
+                         o2.OrderNo.ToString + "," +
+                         o2.OrderDetail.ToString + "," +
+                         "'" + defaultComment + "')"
+
+        db.sqlExecution(insertSql)
 
         'set primary key
         table.PrimaryKey = {table.Columns("OrderNo"), table.Columns("OrderDetail")}
@@ -192,12 +203,13 @@ Public Class DBExecutionTest
 
         Dim stored2 As DataTable = selectOrder(db, o2)  'check update
 
-        Assert.IsTrue("Apple_Update" = stored2.Rows(0)("Material").ToString)
+        Assert.IsTrue(o2.MaterialCode = stored2.Rows(0)("Material").ToString)
         Assert.IsTrue(now.ToString("yyyyMMdd") <= stored2.Rows(0)("OrderDate").ToString)
         Assert.IsTrue(now.ToString("yyyyMMddHHmmss") <= CDate(stored2.Rows(0)("DeliverDate")).ToString("yyyyMMddHHmmss"))
-        Assert.IsTrue(String.IsNullOrEmpty(stored2.Rows(0)("CommentText").ToString))
+        Assert.IsTrue(defaultComment = stored2.Rows(0)("CommentText").ToString)
 
         deleteOrder(db, o1)
+        deleteOrder(db, o2)
 
     End Sub
 
