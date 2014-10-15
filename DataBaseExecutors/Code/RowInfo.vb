@@ -155,7 +155,7 @@ Namespace DataBaseExecutors
             For Each param As KeyValuePair(Of String, Object) In RowValues
                 Dim cp As ColumnProperty = ColumnProperties.Where(Function(p) p.Name = param.Key).FirstOrDefault
                 If cp IsNot Nothing Then
-                    If Not cp.IsKey Then
+                    If Not cp.IsKey And Not cp.IsIgnore Then
                         targets.Add(cp.Name, cp.Name + " = :p" + cp.Name)
                         params.Add(":p" + cp.Name, param.Value)
                     End If
