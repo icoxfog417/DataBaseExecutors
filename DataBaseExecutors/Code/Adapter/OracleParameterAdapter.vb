@@ -47,10 +47,10 @@ Namespace DataBaseExecutors.Adapter
                         setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "Clob"))
                     End If
 
-                Case Data.DbType.String 'UNICODE
+                Case Data.DbType.String
                     setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "NVarchar2"))
 
-                Case Data.DbType.StringFixedLength  'UNICODE
+                Case Data.DbType.StringFixedLength
                     setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "NChar"))
 
                 Case Else

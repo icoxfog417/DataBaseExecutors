@@ -94,7 +94,6 @@ Public Class OracleParameterTest
     Public Sub useNVarchar2Type()
         Dim db As New DBExecution(OracleConnection)
 
-        'Function作成
         db.sqlExecution("CREATE FUNCTION DBExecutionNVarchar2(text NVarchar2) RETURN NVarchar2 IS BEGIN RETURN text; END;")
 
         Dim text As String = "青岛"
@@ -113,7 +112,6 @@ Public Class OracleParameterTest
 
         Assert.AreEqual(text, result.ToString)
 
-        'Functionのドロップ
         db.sqlExecution("DROP FUNCTION DBExecutionNVarchar2")
 
     End Sub
@@ -122,7 +120,6 @@ Public Class OracleParameterTest
     Public Sub useNCharType()
         Dim db As New DBExecution(OracleConnection)
 
-        'Function作成
         db.sqlExecution("CREATE FUNCTION DBExecutionNChar(text NChar) RETURN NChar IS BEGIN RETURN text; END;")
 
         Dim text As String = "X"
@@ -141,7 +138,6 @@ Public Class OracleParameterTest
 
         Assert.AreEqual(text, result.ToString)
 
-        'Functionのドロップ
         db.sqlExecution("DROP FUNCTION DBExecutionNChar")
 
     End Sub
