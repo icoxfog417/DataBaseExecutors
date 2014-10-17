@@ -90,5 +90,55 @@ Public Class OracleParameterTest
 
     End Sub
 
+    <TestMethod()>
+    Public Sub useNVarchar2Type()
+        Dim db As New DBExecution(OracleConnection)
 
+        db.sqlExecution("CREATE FUNCTION DBExecutionNVarchar2(text NVarchar2) RETURN NVarchar2 IS BEGIN RETURN text; END;")
+
+        Dim text As String = "青岛"
+
+        Dim resultText As New DBExecutionParameter("rText", DbType.String)
+        resultText.Direction = ParameterDirection.ReturnValue
+        resultText.Size = text.Length
+
+        Dim inputText As New DBExecutionParameter("text", DbType.String)
+        inputText.Value = text
+
+        db.addFilter(inputText)
+        db.addFilter(resultText)
+
+        Dim result As Object = db.executeDBFunction(Of Object)("DBExecutionNVarchar2")
+
+        Assert.AreEqual(text, result.ToString)
+
+        db.sqlExecution("DROP FUNCTION DBExecutionNVarchar2")
+
+    End Sub
+
+    <TestMethod()>
+    Public Sub useNCharType()
+        Dim db As New DBExecution(OracleConnection)
+
+        db.sqlExecution("CREATE FUNCTION DBExecutionNChar(text NChar) RETURN NChar IS BEGIN RETURN text; END;")
+
+        Dim text As String = "X"
+
+        Dim resultText As New DBExecutionParameter("rText", DbType.StringFixedLength)
+        resultText.Direction = ParameterDirection.ReturnValue
+        resultText.Size = text.Length
+
+        Dim inputText As New DBExecutionParameter("text", DbType.StringFixedLength)
+        inputText.Value = text
+
+        db.addFilter(inputText)
+        db.addFilter(resultText)
+
+        Dim result As Object = db.executeDBFunction(Of Object)("DBExecutionNChar")
+
+        Assert.AreEqual(text, result.ToString)
+
+        db.sqlExecution("DROP FUNCTION DBExecutionNChar")
+
+    End Sub
 End Class

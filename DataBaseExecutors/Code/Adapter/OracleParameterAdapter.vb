@@ -46,6 +46,13 @@ Namespace DataBaseExecutors.Adapter
                     If fromParam.Size > 8000 Then
                         setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "Clob"))
                     End If
+
+                Case Data.DbType.String
+                    setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "NVarchar2"))
+
+                Case Data.DbType.StringFixedLength
+                    setProperty(toParam, "OracleDbType", [Enum].Parse(createOracleType("OracleDbType"), "NChar"))
+
                 Case Else
                     'デフォルト動作
                     MyBase.SetDbType(fromParam, toParam)
@@ -72,7 +79,7 @@ Namespace DataBaseExecutors.Adapter
             End Select
 
             Select Case result.DbType
-                Case DbType.AnsiString, DbType.AnsiStringFixedLength
+                Case DbType.AnsiString, DbType.AnsiStringFixedLength, Data.DbType.String, Data.DbType.StringFixedLength
                     If IsDBNull(value) Then
                         value = String.Empty 'NULL is length 0 string
                     End If
